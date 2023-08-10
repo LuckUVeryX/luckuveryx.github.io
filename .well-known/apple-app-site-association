@@ -3,6 +3,18 @@
         "apps": [],
         "details": [
             {
+                "appID": "2J32387GHW.com.evolve.evlve.dev",
+                "paths": [
+                    "*"
+                ]
+            },
+            {
+                "appID": "2J32387GHW.com.evolve.evlve.stg",
+                "paths": [
+                    "*"
+                ]
+            },
+            {
                 "appID": "2J32387GHW.com.evolve.evlve",
                 "paths": [
                     "*"
@@ -12,6 +24,8 @@
     },
     "webcredentials": {
         "apps": [
+            "2J32387GHW.com.evolve.evlve.dev",
+            "2J32387GHW.com.evolve.evlve.stg",
             "2J32387GHW.com.evolve.evlve"
         ]
     }
