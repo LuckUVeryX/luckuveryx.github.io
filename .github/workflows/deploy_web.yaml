@@ -1,0 +1,28 @@
+name: "Deploy Web App to Github Pages"
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+      # - run: flutter pub run build_runner build --delete-conflicting-outputs
+      - run: flutter config --enable-web
+      - run: flutter build web --release --target lib/main_production.dart
+      - run: git config user.name github-actions
+      - run: git config user.email github-actions@github.com
+      - run: git --work-tree build/web add --all
+      - run: git add .well-known --all
+      - run: git add _config.yml
+      - run: git commit -m "Automatic deployment by github-actions"
+      - run: git push origin HEAD:gh-pages --force
