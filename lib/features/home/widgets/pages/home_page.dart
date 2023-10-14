@@ -26,8 +26,7 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DefaultTextStyle(
-                  style: context.textTheme.displayMedium!.copyWith(
-                    fontWeight: FontWeight.bold,
+                  style: context.textTheme.displayLarge!.copyWith(
                     color: context.colorScheme.primary,
                   ),
                   child: AnimatedFadeIn(
