@@ -1,29 +1,7 @@
 {
     "applinks": {
         "apps": [],
-        "details": [
-            {
-                "appID": "2J32387GHW.com.evolve.evlve.dev",
-                "paths": [
-                    "NOT /star_realms_health_counter/",
-                    "*"
-                ]
-            },
-            {
-                "appID": "2J32387GHW.com.evolve.evlve.stg",
-                "paths": [
-                    "NOT /star_realms_health_counter/",
-                    "*"
-                ]
-            },
-            {
-                "appID": "2J32387GHW.com.evolve.evlve",
-                "paths": [
-                    "NOT /star_realms_health_counter/",
-                    "*"
-                ]
-            }
-        ]
+        "details": []
     },
     "webcredentials": {
         "apps": [
