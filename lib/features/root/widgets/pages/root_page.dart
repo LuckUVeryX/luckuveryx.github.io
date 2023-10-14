@@ -19,9 +19,17 @@ class RootPage extends HookConsumerWidget {
       opacity: isLoadingFonts ? 0 : 1,
       duration: const Duration(milliseconds: 250),
       curve: Curves.easeInOut,
-      child: Scaffold(
-        appBar: const RootAppBar(),
-        body: navigator,
+      child: RootBackgroundPattern(
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: const RootAppBar(),
+          body: Stack(
+            children: [
+              const RootBackgroundText(),
+              navigator,
+            ],
+          ),
+        ),
       ),
     );
   }
