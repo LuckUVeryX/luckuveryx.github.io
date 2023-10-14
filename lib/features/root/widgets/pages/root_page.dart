@@ -23,7 +23,16 @@ class RootPage extends HookConsumerWidget {
         appBar: const RootAppBar(),
         body: Stack(
           children: [
-            const RootBackgroundText(),
+            const Positioned(
+              left: -800,
+              bottom: 0,
+              child: RootBackgroundText(),
+            ),
+            const Positioned(
+              top: 0,
+              right: -800,
+              child: RootBackgroundText(),
+            ),
             navigator,
           ],
         ),

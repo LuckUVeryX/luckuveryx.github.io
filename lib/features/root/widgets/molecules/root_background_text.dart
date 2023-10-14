@@ -8,22 +8,16 @@ class RootBackgroundText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      left: -920,
-      bottom: 0,
-      child: Text(
-        'LUCKUVERYX.',
-        textAlign: TextAlign.center,
-        maxLines: 1,
-        overflow: TextOverflow.clip,
-        style: context.textTheme.displayLarge?.copyWith(
-          color: context.theme.disabledColor.withOpacity(
-            context.theme.brightness == Brightness.light ? 0.1 : 0.05,
-          ),
-          fontWeight: FontWeight.bold,
-          fontSize: 200,
-          letterSpacing: 12,
-        ),
+    return Text(
+      'LUCKUVERYX.',
+      maxLines: 1,
+      overflow: TextOverflow.clip,
+      textAlign: TextAlign.center,
+      style: context.textTheme.displayLarge?.copyWith(
+        fontSize: 200,
+        letterSpacing: 12,
+        fontWeight: FontWeight.bold,
+        color: context.theme.disabledColor.withOpacity(0.05),
       ),
     );
   }
