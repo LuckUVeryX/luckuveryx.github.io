@@ -24,7 +24,6 @@ class NextPageButton extends StatelessWidget {
           label: const AnimatedBounce(
             child: FaIcon(
               FontAwesomeIcons.arrowRight,
-              size: 16,
             ),
           ),
         ),
