@@ -50,7 +50,7 @@ enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
 /// [ResponsiveLayout] values referenced from
 /// https://tailwindcss.com/docs/responsive-design
 extension ResponsiveBreakpointX on ResponsiveLayout {
-  int get value {
+  double get value {
     return switch (this) {
       ResponsiveLayout.sm => 640,
       ResponsiveLayout.md => 786,
