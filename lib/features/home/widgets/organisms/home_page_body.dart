@@ -63,10 +63,8 @@ class HomePageBody extends StatelessWidget {
           ),
           child: AnimatedFadeIn(
             offsetDuration: const Duration(milliseconds: 100),
-            child:
-                // TODO(Ryan): l10n
-                NextPageButton(
-              label: 'View Experiences',
+            child: NextPageButton(
+              label: context.l10n.viewExperiences,
               onPressed: () => const ExperiencesRoute().go(context),
             ),
           ),
