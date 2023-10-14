@@ -29,6 +29,7 @@ class App extends HookConsumerWidget {
       routerConfig: router,
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
+      debugShowCheckedModeBanner: false,
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
     );

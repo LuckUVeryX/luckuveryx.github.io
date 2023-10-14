@@ -13,12 +13,16 @@ class HomeBottomFooterText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
       mainAxisSize: MainAxisSize.min,
       children: [
-        StyledRichText(
-          text: context.l10n.footer,
-          style: context.textTheme.labelSmall
-              ?.copyWith(color: context.theme.disabledColor),
+        Flexible(
+          child: StyledRichText(
+            textAlign: TextAlign.right,
+            text: context.l10n.footer,
+            style: context.textTheme.labelSmall
+                ?.copyWith(color: context.theme.disabledColor),
+          ),
         ),
         IconButton(
           iconSize: 12,

@@ -7,12 +7,14 @@ class StyledRichText extends StatelessWidget {
   const StyledRichText({
     required this.text,
     this.style,
+    this.textAlign,
     this.tags,
     super.key,
   });
 
   final String text;
   final TextStyle? style;
+  final TextAlign? textAlign;
   final Map<String, StyledTextTagBase>? tags;
 
   void _onLinkTap(String? text, Map<String?, String?> attrs) {
@@ -28,6 +30,7 @@ class StyledRichText extends StatelessWidget {
     return StyledText(
       text: text,
       style: style,
+      textAlign: textAlign,
       tags: {
         ...?tags,
         'b': StyledTextTag(

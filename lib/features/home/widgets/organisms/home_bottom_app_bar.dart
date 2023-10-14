@@ -20,8 +20,7 @@ class HomeBottomAppBar extends StatelessWidget {
             onPressed: HomeLink.linkedIn.launch,
             icon: const FaIcon(FontAwesomeIcons.linkedin),
           ),
-          const Spacer(),
-          const HomeBottomFooterText(),
+          const Expanded(child: HomeBottomFooterText()),
         ],
       ),
     );
