@@ -39,13 +39,17 @@ enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
     );
   }
 
-  static double paddingOf(BuildContext context) {
+  static double paddingValueOf(BuildContext context) {
     return ResponsiveLayout.builderOf(context, {
-          ResponsiveLayout.md: 32,
-          ResponsiveLayout.lg: 64,
-          ResponsiveLayout.xl: 128,
-        }) ??
-        16;
+      ResponsiveLayout.sm: 16,
+      ResponsiveLayout.md: 32,
+      ResponsiveLayout.lg: 64,
+      ResponsiveLayout.xl: 128,
+    })!;
+  }
+
+  static EdgeInsets paddingOf(BuildContext context) {
+    return EdgeInsets.symmetric(horizontal: paddingValueOf(context));
   }
 
   static T? builderOf<T>(BuildContext context, Map<ResponsiveLayout, T> map) {
