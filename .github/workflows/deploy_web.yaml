@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
-      # - run: flutter pub run build_runner build --delete-conflicting-outputs
+      - run: flutter pub run build_runner build --delete-conflicting-outputs
       - run: flutter config --enable-web
       - run: flutter build web --release --target lib/main_production.dart
       - run: git config user.name github-actions
