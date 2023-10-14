@@ -1,4 +1,13 @@
-include: package:very_good_analysis/analysis_options.5.1.0.yaml
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  plugins:
+    - custom_lint
+
+custom_lint:
+  rules:
+    - missing_provider_scope: false
+
 linter:
   rules:
     public_member_api_docs: false
