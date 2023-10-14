@@ -32,7 +32,7 @@ double _useBounce({
 class AnimatedBounce extends HookWidget {
   const AnimatedBounce({
     required this.child,
-    this.offset = const Offset(4, 0),
+    this.offset = const Offset(8, 0),
     this.duration = const Duration(milliseconds: 500),
     super.key,
   });

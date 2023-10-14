@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:luckuveryx/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 enum _Link { gitHub, linkedIn }
@@ -15,7 +16,7 @@ class SocialButtons extends StatelessWidget {
           (e) => IconButton(
             iconSize: 20,
             onPressed: e.launch,
-            icon: FaIcon(e.icon),
+            icon: AnimatedHover(child: FaIcon(e.icon)),
           ),
         ),
       ],
