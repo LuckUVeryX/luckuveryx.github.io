@@ -14,20 +14,15 @@ class NextPageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        TextButton.icon(
-          style: TextButton.styleFrom(),
-          onPressed: onPressed,
-          icon: Text(label),
-          label: const AnimatedBounce(
-            child: FaIcon(
-              FontAwesomeIcons.arrowRight,
-            ),
-          ),
+    return TextButton.icon(
+      style: TextButton.styleFrom(),
+      onPressed: onPressed,
+      icon: Text(label),
+      label: const AnimatedBounce(
+        child: FaIcon(
+          FontAwesomeIcons.arrowRight,
         ),
-      ],
+      ),
     );
   }
 }

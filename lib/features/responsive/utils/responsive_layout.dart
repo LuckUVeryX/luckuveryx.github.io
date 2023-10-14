@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -33,28 +34,23 @@ enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
 
   static ResponsiveLayout of(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
-    return ResponsiveLayout.values.firstWhere(
-      (e) => e.value > size.width,
-      orElse: () => ResponsiveLayout.values.last,
+    return ResponsiveLayout.values.lastWhere(
+      (e) => e.value <= size.width,
+      orElse: () => ResponsiveLayout.values.first,
     );
   }
 
-  static double paddingValueOf(BuildContext context) {
-    return ResponsiveLayout.builderOf(context, {
-      ResponsiveLayout.sm: 16,
-      ResponsiveLayout.md: 32,
-      ResponsiveLayout.lg: 64,
-      ResponsiveLayout.xl: 128,
-    })!;
-  }
-
   static EdgeInsets paddingOf(BuildContext context) {
-    return EdgeInsets.symmetric(horizontal: paddingValueOf(context));
+    final width = MediaQuery.sizeOf(context).width;
+    final target = of(context).value;
+    return EdgeInsets.symmetric(
+      horizontal: (max(0, width - target) ~/ 2) + 16.0,
+    );
   }
 
   static T? builderOf<T>(BuildContext context, Map<ResponsiveLayout, T> map) {
     final tree = SplayTreeMap<ResponsiveLayout, T>.from(map);
-    final layout = ResponsiveLayout.of(context);
+    final layout = of(context);
     if (map.containsKey(layout)) return tree[layout];
     return tree[tree.lastKeyBefore(layout)];
   }
