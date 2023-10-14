@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -12,33 +14,30 @@ class HomePageBody extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = useAnimationController(
-      duration: const Duration(seconds: 1),
-    )..forward();
+    final titleController = useAnimationController(
+      duration: const Duration(milliseconds: 500),
+    );
+    final contentController = useAnimationController(
+      duration: const Duration(milliseconds: 500),
+    );
 
-    final titleAnimation = TweenSequence<double>(
-      [
-        TweenSequenceItem(
-          tween: Tween<double>(begin: 0, end: 1)
-              .chain(CurveTween(curve: Curves.easeInOut)),
-          weight: 100,
-        ),
-      ],
-    ).animate(controller);
+    useEffect(
+      () {
+        titleController.forward();
+        Future.delayed(
+          const Duration(milliseconds: 50),
+          contentController.forward,
+        );
+        return null;
+      },
+      [],
+    );
 
-    final contentAnimation = TweenSequence<double>(
-      [
-        TweenSequenceItem(
-          tween: ConstantTween<double>(0),
-          weight: 50,
-        ),
-        TweenSequenceItem(
-          tween: Tween<double>(begin: 0, end: 1)
-              .chain(CurveTween(curve: Curves.easeInOut)),
-          weight: 50,
-        ),
-      ],
-    ).animate(controller);
+    final titleAnimation =
+        CurvedAnimation(parent: titleController, curve: Curves.easeInOut);
+
+    final contentAnimation =
+        CurvedAnimation(parent: contentController, curve: Curves.easeInOut);
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -59,11 +58,11 @@ class HomePageBody extends HookWidget {
                   child: AnimatedTextKit(
                     animatedTexts: [
                       TyperAnimatedText(
-                        'Ryan Yip',
+                        'LuckUVeryX',
                         speed: const Duration(milliseconds: 100),
                       ),
                       TyperAnimatedText(
-                        'LuckUVeryX',
+                        'Ryan Yip',
                         speed: const Duration(milliseconds: 100),
                       ),
                     ],
