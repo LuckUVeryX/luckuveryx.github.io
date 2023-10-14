@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:luckuveryx/counter/counter.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -16,7 +15,6 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
     );
   }
 }
