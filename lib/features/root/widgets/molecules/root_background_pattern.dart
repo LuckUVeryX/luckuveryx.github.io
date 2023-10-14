@@ -13,23 +13,27 @@ class RootBackgroundPattern extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final image = useMemoized(
-      () => DecorationImage(
-        fit: BoxFit.cover,
-        image: Assets.images.backgroundPattern.provider(),
-        colorFilter: ColorFilter.mode(
-          context.theme.disabledColor.withOpacity(0.05),
-          BlendMode.srcIn,
-        ),
-      ),
-      // Trigger rebuild of background after theme changed.
-      [context.theme.brightness],
+    final image = Assets.images.backgroundPattern.provider();
+
+    useEffect(
+      () {
+        Future.delayed(Duration.zero, () => precacheImage(image, context));
+        return null;
+      },
+      [],
     );
 
     return Container(
       decoration: BoxDecoration(
         color: context.colorScheme.background,
-        image: image,
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: image,
+          colorFilter: ColorFilter.mode(
+            context.theme.disabledColor.withOpacity(0.05),
+            BlendMode.srcIn,
+          ),
+        ),
       ),
       child: child,
     );
