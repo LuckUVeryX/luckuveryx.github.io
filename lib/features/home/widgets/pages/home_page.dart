@@ -13,72 +13,61 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutScrollView(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: ResponsiveLayout.paddingOf(context),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DefaultTextStyle(
-                  style: context.textTheme.displayLarge!.copyWith(
-                    color: context.colorScheme.primary,
-                  ),
-                  child: AnimatedFadeIn(
-                    child: AnimatedTextKit(
-                      repeatForever: true,
-                      animatedTexts: [
-                        TyperAnimatedText(
-                          'LuckUVeryX',
-                          speed: const Duration(milliseconds: 100),
-                        ),
-                        TyperAnimatedText(
-                          'Ryan Yip',
-                          speed: const Duration(milliseconds: 100),
-                        ),
-                      ],
+    return Center(
+      child: LayoutScrollView(
+        child: ResponsivePadding(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DefaultTextStyle(
+                    style: context.textTheme.displayLarge!.copyWith(
+                      color: context.colorScheme.primary,
+                    ),
+                    child: AnimatedFadeIn(
+                      child: AnimatedTextKit(
+                        repeatForever: true,
+                        animatedTexts: [
+                          TyperAnimatedText(
+                            'LuckUVeryX.',
+                            speed: const Duration(milliseconds: 100),
+                          ),
+                          TyperAnimatedText(
+                            'Ryan Yip.',
+                            speed: const Duration(milliseconds: 100),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Spacing.sp8,
-                AnimatedFadeIn(
-                  offsetDuration: const Duration(milliseconds: 50),
-                  child: StyledRichText(
-                    text: context.l10n.homeContent,
-                    style: context.textTheme.bodyLarge,
+                  Spacing.sp8,
+                  AnimatedFadeIn(
+                    offsetDuration: const Duration(milliseconds: 50),
+                    child: StyledRichText(
+                      text: context.l10n.homeContent,
+                      style: context.textTheme.bodyLarge,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Spacing.sp8,
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: ResponsiveLayout.paddingValueOf(context) - 12,
-            ),
-            child: AnimatedFadeIn(
-              offsetDuration: const Duration(milliseconds: 100),
-              child: NextPageButton(
-                label: context.l10n.viewExperiences,
-                onPressed: () => const ExperiencesRoute().go(context),
+                ],
               ),
-            ),
+              Spacing.sp8,
+              AnimatedFadeIn(
+                offsetDuration: const Duration(milliseconds: 100),
+                child: NextPageButton(
+                  label: context.l10n.viewExperiences,
+                  onPressed: () => const ExperiencesRoute().go(context),
+                ),
+              ),
+              const AnimatedFadeIn(
+                offsetDuration: Duration(milliseconds: 150),
+                child: SocialButtons(),
+              ),
+            ],
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: ResponsiveLayout.paddingValueOf(context) - 12,
-            ),
-            child: const AnimatedFadeIn(
-              offsetDuration: Duration(milliseconds: 150),
-              child: SocialButtons(),
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
