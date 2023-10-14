@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/home/home.dart';
-import 'package:luckuveryx/features/responsive/utils/utils.dart';
-import 'package:luckuveryx/l10n/l10n.dart';
+import 'package:luckuveryx/features/responsive/responsive.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({
@@ -19,20 +18,22 @@ class HomePage extends HookConsumerWidget {
       duration: const Duration(milliseconds: 250),
       curve: Curves.easeInOut,
       child: Scaffold(
-        body: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: ResponsiveLayout.xl.value),
-            child: NestedScrollView(
-              headerSliverBuilder: (context, innerBoxIsScrolled) {
-                return [const HomePageAppBar()];
-              },
-              body: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(
-                  context.l10n.homeContent,
+        appBar: const HomePageAppBar(),
+        body: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: ResponsiveLayout.paddingOf(context),
+          ),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                  child: const IntrinsicHeight(
+                    child: HomePageBody(),
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
           ),
         ),
         bottomNavigationBar: const HomeBottomAppBar(),

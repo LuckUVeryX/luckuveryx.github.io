@@ -39,7 +39,16 @@ enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
     );
   }
 
-  static T? builder<T>(BuildContext context, Map<ResponsiveLayout, T> map) {
+  static double paddingOf(BuildContext context) {
+    return ResponsiveLayout.builderOf(context, {
+          ResponsiveLayout.md: 32,
+          ResponsiveLayout.lg: 64,
+          ResponsiveLayout.xl: 128,
+        }) ??
+        16;
+  }
+
+  static T? builderOf<T>(BuildContext context, Map<ResponsiveLayout, T> map) {
     final tree = SplayTreeMap<ResponsiveLayout, T>.from(map);
     final layout = ResponsiveLayout.of(context);
     if (map.containsKey(layout)) return tree[layout];
