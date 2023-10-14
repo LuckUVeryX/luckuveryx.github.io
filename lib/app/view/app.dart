@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/app/router/router.dart';
 import 'package:luckuveryx/app/theme/theme.dart';
+import 'package:luckuveryx/features/theme_switcher/theme_switcher.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
 
 class App extends HookConsumerWidget {
@@ -29,6 +30,7 @@ class App extends HookConsumerWidget {
       routerConfig: router,
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
+      themeMode: ref.watch(themeSwitcherControllerProvider),
       debugShowCheckedModeBanner: false,
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: AppLocalizations.localizationsDelegates,

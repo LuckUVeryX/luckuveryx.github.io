@@ -1,4 +1,7 @@
 {
     "@@locale": "en",
-    "footer": "This <link href=\"https://github.com/LuckUVeryX/luckuveryx.github.io\">site</link> was built using <link href=\"https://flutter.dev\">Flutter</link> and deployed on <link href=\"https://pages.github.com\">GitHub Pages</link>."
+    "footer": "This <link href=\"https://github.com/LuckUVeryX/luckuveryx.github.io\">site</link> was built using <link href=\"https://flutter.dev\">Flutter</link> and deployed on <link href=\"https://pages.github.com\">GitHub Pages</link>.",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects"
 }

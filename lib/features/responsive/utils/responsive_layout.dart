@@ -1,6 +1,8 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 
-enum ResponsiveLayout {
+enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
   /// Mobile
   ///
   /// `640`
@@ -26,12 +28,22 @@ enum ResponsiveLayout {
   /// `1536`
   xxl;
 
+  @override
+  int compareTo(ResponsiveLayout other) => index - other.index;
+
   static ResponsiveLayout of(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return ResponsiveLayout.values.firstWhere(
       (e) => e.value > size.width,
       orElse: () => ResponsiveLayout.values.last,
     );
+  }
+
+  static T? builder<T>(BuildContext context, Map<ResponsiveLayout, T> map) {
+    final tree = SplayTreeMap<ResponsiveLayout, T>.from(map);
+    final layout = ResponsiveLayout.of(context);
+    if (map.containsKey(layout)) return tree[layout];
+    return tree[tree.lastKeyBefore(layout)];
   }
 }
 
