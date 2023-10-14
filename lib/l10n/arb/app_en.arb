@@ -3,5 +3,7 @@
     "footer": "This <link href=\"https://github.com/LuckUVeryX/luckuveryx.github.io\">site</link> was built using <link href=\"https://flutter.dev\">Flutter</link> and deployed on <link href=\"https://pages.github.com\">GitHub Pages</link>.",
     "home": "Home",
     "about": "About",
-    "projects": "Projects"
+    "projects": "Projects",
+    "resume": "Resume",
+    "homeContent": "I'm a Mobile Engineer specializing in Flutter, dedicated to crafting engaging mobile experiences. During the day, I'm busy coding and developing innovative projects, while in my free time, I'm passionate about Muay Thai, honing my skills and exploring the world of martial arts. I excel at optimizing performance and delivering seamless user interactions. Beyond work, you'll find me immersed in the art of Muay Thai, continually striving to master this dynamic discipline. Ready to discuss your next project? Let's connect!"
 }

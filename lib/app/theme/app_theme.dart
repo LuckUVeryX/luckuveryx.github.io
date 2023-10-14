@@ -8,7 +8,6 @@ class AppTheme {
     return FlexThemeData.light(
       scheme: FlexScheme.deepBlue,
       useMaterial3: true,
-      useMaterial3ErrorColors: true,
     );
   }
 
@@ -16,8 +15,6 @@ class AppTheme {
     return FlexThemeData.dark(
       scheme: FlexScheme.deepBlue,
       useMaterial3: true,
-      darkIsTrueBlack: true,
-      useMaterial3ErrorColors: true,
     );
   }
 }
