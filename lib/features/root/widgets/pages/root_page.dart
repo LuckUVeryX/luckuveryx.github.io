@@ -22,7 +22,6 @@ class RootPage extends HookConsumerWidget {
       child: Scaffold(
         appBar: const RootAppBar(),
         body: navigator,
-        bottomNavigationBar: const RootBottomAppBar(),
       ),
     );
   }
