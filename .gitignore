@@ -89,7 +89,9 @@ coverage/
 # Submodules
 packages/**/pubspec.lock
 
-# Web related
+# Codegen Related
+*.freezed.dart
+*.g.dart
 
 # Symbolication related
 app.*.symbols
