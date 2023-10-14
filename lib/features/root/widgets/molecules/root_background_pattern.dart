@@ -27,10 +27,11 @@ class RootBackgroundPattern extends HookWidget {
       decoration: BoxDecoration(
         color: context.colorScheme.background,
         image: DecorationImage(
-          fit: BoxFit.cover,
           image: image,
+          opacity: 0.2,
+          fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            context.theme.disabledColor.withOpacity(0.05),
+            context.theme.disabledColor.withOpacity(0.2),
             BlendMode.srcIn,
           ),
         ),
