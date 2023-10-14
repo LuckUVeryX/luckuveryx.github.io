@@ -10,33 +10,21 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isLoadingFonts = ref
-        .watch(googleFontsPendingProvider.select((value) => value.isLoading));
-
-    return AnimatedOpacity(
-      opacity: isLoadingFonts ? 0 : 1,
-      duration: const Duration(milliseconds: 250),
-      curve: Curves.easeInOut,
-      child: Scaffold(
-        appBar: const HomePageAppBar(),
-        body: Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: ResponsiveLayout.paddingOf(context),
-          ),
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              return SingleChildScrollView(
-                child: ConstrainedBox(
-                  constraints: BoxConstraints(minHeight: constraints.maxHeight),
-                  child: const IntrinsicHeight(
-                    child: HomePageBody(),
-                  ),
-                ),
-              );
-            },
-          ),
-        ),
-        bottomNavigationBar: const HomeBottomAppBar(),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: ResponsiveLayout.paddingOf(context),
+      ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: const IntrinsicHeight(
+                child: HomePageBody(),
+              ),
+            ),
+          );
+        },
       ),
     );
   }
