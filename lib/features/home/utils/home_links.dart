@@ -1,14 +1,14 @@
 import 'package:url_launcher/url_launcher.dart';
 
-enum UrlLink { gitHub, linkedIn, project }
+enum HomeLink { gitHub, linkedIn, project }
 
-extension UrlLinkX on UrlLink {
+extension HomeLinkX on HomeLink {
   Uri get uri {
     return switch (this) {
-      UrlLink.gitHub => Uri.parse('https://github.com/LuckUVeryX'),
-      UrlLink.linkedIn =>
+      HomeLink.gitHub => Uri.parse('https://github.com/LuckUVeryX'),
+      HomeLink.linkedIn =>
         Uri.parse('https://www.linkedin.com/in/ryan-yip-luckuveryx/'),
-      UrlLink.project =>
+      HomeLink.project =>
         Uri.parse('https://github.com/LuckUVeryX/luckuveryx.github.io'),
     };
   }
