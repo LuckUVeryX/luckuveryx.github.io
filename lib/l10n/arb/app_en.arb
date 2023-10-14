@@ -1,4 +1,9 @@
 {
     "@@locale": "en",
-    "footer": "This <link href=\"https://github.com/LuckUVeryX/luckuveryx.github.io\">site</link> was built using <link href=\"https://flutter.dev\">Flutter</link> and deployed on <link href=\"https://pages.github.com\">GitHub Pages</link>."
+    "footer": "This <link href=\"https://github.com/LuckUVeryX/luckuveryx.github.io\">site</link> was built using <link href=\"https://flutter.dev\">Flutter</link> and deployed on <link href=\"https://pages.github.com\">GitHub Pages</link>.",
+    "home": "Home",
+    "experiences": "Experiences",
+    "projects": "Projects",
+    "resume": "Resume",
+    "homeContent": "Welcome to my portfolio! I'm Ryan Yip, a Mobile Engineer specializing in Flutter. I have a passion for crafting engaging mobile apps that make life easier and more enjoyable. My journey includes projects like <link>Evlve</link> (Evolve) MMA class booking app, <link>VJChoir Archives</link>, an audio player for my choir's past concerts, and <link>BubuDex</link>, a fun and informative PokéDex app. With expertise in mobile development, I'm here to help you turn your app ideas into reality. Explore my work and let's collaborate on your next project."
 }

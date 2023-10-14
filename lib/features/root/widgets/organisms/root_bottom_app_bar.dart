@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:luckuveryx/features/home/home.dart';
+import 'package:luckuveryx/features/root/root.dart';
 
-class HomeBottomAppBar extends StatelessWidget {
-  const HomeBottomAppBar({
+class RootBottomAppBar extends StatelessWidget {
+  const RootBottomAppBar({
     super.key,
   });
 
@@ -13,15 +13,14 @@ class HomeBottomAppBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            onPressed: HomeLink.gitHub.launch,
+            onPressed: RootLink.gitHub.launch,
             icon: const FaIcon(FontAwesomeIcons.github),
           ),
           IconButton(
-            onPressed: HomeLink.linkedIn.launch,
+            onPressed: RootLink.linkedIn.launch,
             icon: const FaIcon(FontAwesomeIcons.linkedin),
           ),
-          const Spacer(),
-          const HomeBottomFooterText(),
+          const Expanded(child: RootBottomFooterText()),
         ],
       ),
     );

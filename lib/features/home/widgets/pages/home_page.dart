@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:luckuveryx/features/home/widgets/organisms/home_bottom_app_bar.dart';
+import 'package:luckuveryx/features/home/home.dart';
+import 'package:luckuveryx/features/responsive/responsive.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({
@@ -9,8 +10,22 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
-      bottomNavigationBar: HomeBottomAppBar(),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: ResponsiveLayout.paddingOf(context),
+      ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
+              child: const IntrinsicHeight(
+                child: HomePageBody(),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
