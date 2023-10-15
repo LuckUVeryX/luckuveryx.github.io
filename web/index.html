@@ -21,7 +21,7 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="LuckUVeryX">
 
-  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -37,6 +37,21 @@
 </head>
 
 <body>
+  <style>
+    /* Light mode */
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: #FCFCFD;
+      }
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+      }
+    }
+  </style>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
