@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luckuveryx/features/experiences/experiences.dart';
 import 'package:luckuveryx/features/home/home.dart';
 import 'package:luckuveryx/features/root/root.dart';
 
@@ -25,14 +26,24 @@ class RootRoute extends ShellRouteData {
       navigator: navigator,
     );
   }
+
+  @override
+  Page<void> pageBuilder(
+    BuildContext context,
+    GoRouterState state,
+    Widget navigator,
+  ) {
+    return _FadeTransitionPage(child: RootPage(navigator: navigator));
+  }
 }
 
 class HomeRoute extends GoRouteData {
   const HomeRoute();
   static const path = '/';
+
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const HomePage();
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const _FadeTransitionPage(child: HomePage());
   }
 }
 
@@ -40,10 +51,8 @@ class ExperiencesRoute extends GoRouteData {
   const ExperiencesRoute();
   static const path = '/experiences';
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const Center(
-      child: Text(path),
-    );
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const _FadeTransitionPage(child: ExperiencesPage());
   }
 }
 
@@ -51,9 +60,11 @@ class ProjectsRoute extends GoRouteData {
   const ProjectsRoute();
   static const path = '/projects';
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const Center(
-      child: Text(path),
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const _FadeTransitionPage(
+      child: Center(
+        child: Text(path),
+      ),
     );
   }
 }
@@ -62,9 +73,30 @@ class ResumeRoute extends GoRouteData {
   const ResumeRoute();
   static const path = '/resume';
   @override
-  Widget build(BuildContext context, GoRouterState state) {
-    return const Center(
-      child: Text(path),
+  Page<void> buildPage(BuildContext context, GoRouterState state) {
+    return const _FadeTransitionPage(
+      child: Center(
+        child: Text(path),
+      ),
     );
+  }
+}
+
+class _FadeTransitionPage<T> extends CustomTransitionPage<T> {
+  const _FadeTransitionPage({
+    required super.child,
+    super.name,
+    super.arguments,
+    super.restorationId,
+    super.key,
+  }) : super(transitionsBuilder: _transitionsBuilder);
+
+  static Widget _transitionsBuilder(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return FadeTransition(opacity: animation, child: child);
   }
 }
