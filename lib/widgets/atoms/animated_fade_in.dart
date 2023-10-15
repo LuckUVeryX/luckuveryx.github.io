@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -9,8 +11,8 @@ double _useFadeIn({
   final controller = useAnimationController(duration: duration);
   useEffect(
     () {
-      Future.delayed(offset, controller.forward);
-      return null;
+      final timer = Timer(offset, controller.forward);
+      return timer.cancel;
     },
     const [],
   );

@@ -3,19 +3,22 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 double _useBounce({required Duration duration}) {
   final controller = useAnimationController(duration: duration);
+
+  void listener(AnimationStatus status) {
+    final onStatusChanged = switch (status) {
+      AnimationStatus.completed => controller.reverse,
+      AnimationStatus.dismissed => controller.forward,
+      _ => null,
+    };
+    onStatusChanged?.call();
+  }
+
   useEffect(
     () {
       controller
-        ..addStatusListener((status) {
-          final onStatusChanged = switch (status) {
-            AnimationStatus.completed => controller.reverse,
-            AnimationStatus.dismissed => controller.forward,
-            _ => null,
-          };
-          onStatusChanged?.call();
-        })
+        ..addStatusListener(listener)
         ..forward();
-      return null;
+      return () => controller.removeStatusListener(listener);
     },
     const [],
   );
