@@ -32,7 +32,7 @@ class RootPage extends HookConsumerWidget {
       body: Stack(
         children: [
           const Positioned(
-            left: -800,
+            left: -1080,
             bottom: 0,
             child: AnimatedFadeIn(
               offset: Offset(-120, 0),
@@ -41,7 +41,7 @@ class RootPage extends HookConsumerWidget {
           ),
           const Positioned(
             top: 0,
-            right: -800,
+            right: -1080,
             child: AnimatedFadeIn(
               offset: Offset(120, 0),
               child: RootBackgroundText(),
