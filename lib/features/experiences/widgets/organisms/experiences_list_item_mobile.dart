@@ -23,37 +23,40 @@ class ExperiencesListItemMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          date,
-          style: context.textTheme.labelSmall?.copyWith(
-            color: context.colorScheme.onBackground.withOpacity(0.7),
+    return AnimatedFadeIn(
+      offset: const Offset(0, 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            date,
+            style: context.textTheme.labelSmall?.copyWith(
+              color: context.colorScheme.onBackground.withOpacity(0.7),
+            ),
           ),
-        ),
-        Transform.translate(
-          offset: const Offset(-12, 0),
-          child: ExperienceCompanyLink(
-            title: company,
-            onPressed: onPressed,
+          Transform.translate(
+            offset: const Offset(-12, 0),
+            child: ExperienceCompanyLink(
+              title: company,
+              onPressed: onPressed,
+            ),
           ),
-        ),
-        Text(
-          role,
-          style: context.textTheme.bodySmall?.copyWith(
-            color: context.colorScheme.onBackground.withOpacity(0.7),
+          Text(
+            role,
+            style: context.textTheme.bodySmall?.copyWith(
+              color: context.colorScheme.onBackground.withOpacity(0.7),
+            ),
           ),
-        ),
-        Spacing.sp8,
-        Text(body),
-        Spacing.sp8,
-        Wrap(
-          runSpacing: 4,
-          spacing: 4,
-          children: [...skills.map((e) => SkillChip(label: e))],
-        ),
-      ],
+          Spacing.sp8,
+          Text(body),
+          Spacing.sp8,
+          Wrap(
+            runSpacing: 4,
+            spacing: 4,
+            children: [...skills.map((e) => SkillChip(label: e))],
+          ),
+        ],
+      ),
     );
   }
 }
