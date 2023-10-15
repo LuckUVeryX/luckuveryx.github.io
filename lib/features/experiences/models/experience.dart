@@ -20,7 +20,7 @@ sealed class Experience {
           role: _roleOf(context),
           body: _bodyOf(context),
           skills: _skillsOf(context),
-          onPressed: _onPressed,
+          onPressed: _onPressed(),
         );
   }
 
