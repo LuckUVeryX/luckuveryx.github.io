@@ -23,60 +23,63 @@ class ExperiencesListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Table(
-      textBaseline: TextBaseline.alphabetic,
-      defaultVerticalAlignment: TableCellVerticalAlignment.baseline,
-      columnWidths: const {0: FlexColumnWidth(), 1: FlexColumnWidth(3)},
-      children: [
-        TableRow(
-          children: [
-            Text(
-              date,
-              style: context.textTheme.bodySmall,
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Transform.translate(
-                // Account for Button Padding
-                offset: const Offset(-12, 0),
-                child: ExperienceCompanyLink(
-                  title: company,
-                  onPressed: onPressed,
+    return AnimatedFadeIn(
+      offset: const Offset(0, 20),
+      child: Table(
+        textBaseline: TextBaseline.alphabetic,
+        defaultVerticalAlignment: TableCellVerticalAlignment.baseline,
+        columnWidths: const {0: FlexColumnWidth(), 1: FlexColumnWidth(3)},
+        children: [
+          TableRow(
+            children: [
+              Text(
+                date,
+                style: context.textTheme.bodySmall,
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Transform.translate(
+                  // Account for Button Padding
+                  offset: const Offset(-12, 0),
+                  child: ExperienceCompanyLink(
+                    title: company,
+                    onPressed: onPressed,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-        TableRow(
-          children: [
-            const Offstage(),
-            Text(
-              role,
-              style: context.textTheme.labelLarge?.copyWith(
-                color: context.colorScheme.onBackground.withOpacity(0.7),
+            ],
+          ),
+          TableRow(
+            children: [
+              const Offstage(),
+              Text(
+                role,
+                style: context.textTheme.labelLarge?.copyWith(
+                  color: context.colorScheme.onBackground.withOpacity(0.7),
+                ),
               ),
-            ),
-          ],
-        ),
-        const TableRow(children: [Offstage(), Spacing.sp4]),
-        TableRow(
-          children: [
-            const Offstage(),
-            Text(body),
-          ],
-        ),
-        const TableRow(children: [Offstage(), Spacing.sp8]),
-        TableRow(
-          children: [
-            const Offstage(),
-            Wrap(
-              spacing: 4,
-              runSpacing: 4,
-              children: [...skills.map((e) => Chip(label: Text(e)))],
-            ),
-          ],
-        ),
-      ],
+            ],
+          ),
+          const TableRow(children: [Offstage(), Spacing.sp4]),
+          TableRow(
+            children: [
+              const Offstage(),
+              Text(body),
+            ],
+          ),
+          const TableRow(children: [Offstage(), Spacing.sp8]),
+          TableRow(
+            children: [
+              const Offstage(),
+              Wrap(
+                spacing: 4,
+                runSpacing: 4,
+                children: [...skills.map((e) => Chip(label: Text(e)))],
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
