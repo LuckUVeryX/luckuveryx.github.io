@@ -16,7 +16,7 @@ class ExperiencesPage extends HookConsumerWidget {
 
     return ListView.builder(
       itemCount: length + 3,
-      padding: ResponsiveLayout.paddingOf(context),
+      padding: ResponsiveLayout.paddingOf(context).copyWith(bottom: 40),
       itemBuilder: (context, index) {
         if (index == 0) {
           return const ExperiencesTitle();

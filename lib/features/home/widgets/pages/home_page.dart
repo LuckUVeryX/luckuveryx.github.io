@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:luckuveryx/app/router/router.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
-import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,9 +23,7 @@ class HomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   DefaultTextStyle(
-                    style: context.textTheme.displayLarge!.copyWith(
-                      color: context.colorScheme.primary,
-                    ),
+                    style: ResponsiveLayout.displayStyleOf(context)!,
                     child: AnimatedFadeIn(
                       offset: const Offset(0, 120),
                       child: AnimatedTextKit(
@@ -50,7 +47,6 @@ class HomePage extends StatelessWidget {
                     offsetDuration: const Duration(milliseconds: 50),
                     child: StyledRichText(
                       text: context.l10n.homeContent,
-                      style: context.textTheme.bodyLarge,
                     ),
                   ),
                 ],
