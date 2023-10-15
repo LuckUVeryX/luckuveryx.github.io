@@ -9,7 +9,7 @@ class AppTheme {
     final theme = FlexThemeData.light(
       useMaterial3: true,
       scheme: FlexScheme.deepBlue,
-      fontFamily: GoogleFonts.notoSans().fontFamily,
+      fontFamily: GoogleFonts.inter().fontFamily,
     );
     final textTheme = theme.textTheme;
     return theme.copyWith(
@@ -24,7 +24,7 @@ class AppTheme {
     final theme = FlexThemeData.dark(
       useMaterial3: true,
       scheme: FlexScheme.deepBlue,
-      fontFamily: GoogleFonts.notoSans().fontFamily,
+      fontFamily: GoogleFonts.inter().fontFamily,
     );
     final textTheme = theme.textTheme;
     return theme.copyWith(
