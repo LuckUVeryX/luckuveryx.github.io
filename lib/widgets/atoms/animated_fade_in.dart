@@ -20,10 +20,10 @@ double _useFadeIn({
 class AnimatedFadeIn extends HookWidget {
   const AnimatedFadeIn({
     required this.child,
-    this.duration = const Duration(milliseconds: 500),
+    this.duration = const Duration(milliseconds: 400),
     this.offsetDuration = Duration.zero,
     this.curve = Curves.easeInOut,
-    this.offset = const Offset(0, 120),
+    this.offset = Offset.zero,
     super.key,
   });
 
