@@ -5,7 +5,5 @@ part 'experiences_provider.g.dart';
 
 @riverpod
 List<Experience> experiences(ExperiencesRef ref) {
-  return [
-    GlintsExperience(),
-  ];
+  return Experience.call();
 }
