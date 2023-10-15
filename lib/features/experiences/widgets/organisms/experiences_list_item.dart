@@ -8,7 +8,7 @@ class ExperiencesListItem extends StatelessWidget {
     required this.date,
     required this.company,
     required this.role,
-    required this.content,
+    required this.body,
     required this.skills,
     required this.onPressed,
     super.key,
@@ -17,7 +17,7 @@ class ExperiencesListItem extends StatelessWidget {
   final String date;
   final String company;
   final String role;
-  final String content;
+  final String body;
   final List<String> skills;
   final VoidCallback onPressed;
 
@@ -62,7 +62,7 @@ class ExperiencesListItem extends StatelessWidget {
         TableRow(
           children: [
             const Offstage(),
-            Text(content),
+            Text(body),
           ],
         ),
         const TableRow(children: [Offstage(), Spacing.sp8]),
