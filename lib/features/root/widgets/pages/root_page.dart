@@ -29,27 +29,7 @@ class RootPage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: const RootAppBar(),
-      body: Stack(
-        children: [
-          const Positioned(
-            left: -1080,
-            bottom: 0,
-            child: AnimatedFadeIn(
-              offset: Offset(-120, 0),
-              child: RootBackgroundText(),
-            ),
-          ),
-          const Positioned(
-            top: 0,
-            right: -1080,
-            child: AnimatedFadeIn(
-              offset: Offset(120, 0),
-              child: RootBackgroundText(),
-            ),
-          ),
-          navigator,
-        ],
-      ),
+      body: navigator,
     );
   }
 }
