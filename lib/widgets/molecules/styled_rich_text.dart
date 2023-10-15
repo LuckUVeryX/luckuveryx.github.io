@@ -38,7 +38,9 @@ class StyledRichText extends StatelessWidget {
         ),
         'link': StyledTextActionTag(
           _onLinkTap,
-          style: style?.copyWith(fontWeight: FontWeight.bold),
+          style: style?.copyWith(
+            decoration: TextDecoration.underline,
+          ),
         ),
       },
     );
