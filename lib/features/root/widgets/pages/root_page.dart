@@ -28,7 +28,6 @@ class RootPage extends HookConsumerWidget {
     }
 
     return Scaffold(
-      appBar: const RootAppBar(),
       body: navigator,
     );
   }
