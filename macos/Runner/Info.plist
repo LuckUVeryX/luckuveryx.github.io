@@ -31,7 +31,6 @@
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>
-		<string>th</string>
 	</array>
 </dict>
 </plist>
