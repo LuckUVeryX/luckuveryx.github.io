@@ -38,7 +38,7 @@ enum ResponsiveLayout {
     final size = MediaQuery.sizeOf(context);
     return ResponsiveLayout.values.firstWhere(
       (e) => size.width <= e.value,
-      orElse: () => ResponsiveLayout.values.first,
+      orElse: () => ResponsiveLayout.values.last,
     );
   }
 
