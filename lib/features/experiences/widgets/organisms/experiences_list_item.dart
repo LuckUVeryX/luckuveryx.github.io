@@ -74,7 +74,7 @@ class ExperiencesListItem extends StatelessWidget {
               Wrap(
                 spacing: 4,
                 runSpacing: 4,
-                children: [...skills.map((e) => Chip(label: Text(e)))],
+                children: [...skills.map((e) => SkillChip(label: e))],
               ),
             ],
           ),
