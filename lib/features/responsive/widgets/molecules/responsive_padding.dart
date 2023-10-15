@@ -1,9 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 
-class ResponsivePadding extends StatelessWidget {
+class ResponsivePadding extends HookWidget {
   const ResponsivePadding({
     required this.child,
     super.key,
@@ -13,14 +12,16 @@ class ResponsivePadding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const values = ResponsiveLayout.values;
     final layout = ResponsiveLayout.of(context);
-    // Aim for the layout to take the next smallest size.
-    final layoutTargetIdx = layout.index - 1;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      // Handle smallest size
-      width: values[max(1, layoutTargetIdx) - 1].value,
+      width: switch (layout) {
+        // For small layouts, only use padding.
+        ResponsiveLayout.sm || ResponsiveLayout.xs => null,
+        // Scope larger sizes to the next smallest layout width.
+        _ => ResponsiveLayout.values[layout.index - 1].value,
+      },
       child: child,
     );
   }
