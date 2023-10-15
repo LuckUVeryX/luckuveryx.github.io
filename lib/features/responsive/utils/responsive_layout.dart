@@ -1,10 +1,9 @@
-import 'dart:collection';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:luckuveryx/utils/theme_extensions.dart';
 
-enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
+enum ResponsiveLayout {
   /// Skinny
   ///
   /// `320`
@@ -35,9 +34,6 @@ enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
   /// `1536`
   xxl;
 
-  @override
-  int compareTo(ResponsiveLayout other) => index - other.index;
-
   static ResponsiveLayout of(BuildContext context) {
     final size = MediaQuery.sizeOf(context);
     return ResponsiveLayout.values.firstWhere(
@@ -61,13 +57,6 @@ enum ResponsiveLayout implements Comparable<ResponsiveLayout> {
       ResponsiveLayout.sm => context.textTheme.displayMedium,
       _ => context.textTheme.displayLarge,
     };
-  }
-
-  static T? builderOf<T>(BuildContext context, Map<ResponsiveLayout, T> map) {
-    final tree = SplayTreeMap<ResponsiveLayout, T>.from(map);
-    final layout = of(context);
-    if (map.containsKey(layout)) return tree[layout];
-    return tree[tree.lastKeyBefore(layout)];
   }
 }
 

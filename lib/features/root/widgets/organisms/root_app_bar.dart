@@ -14,30 +14,30 @@ class RootAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       actions: [
-        ...?ResponsiveLayout.builderOf(context, {
-          ResponsiveLayout.sm: [
-            const RootMenuIconButton(),
-          ],
-          ResponsiveLayout.lg: [
-            TextButton(
-              onPressed: () => const HomeRoute().go(context),
-              child: Text(context.l10n.home),
-            ),
-            TextButton(
-              onPressed: () => const ExperiencesRoute().go(context),
-              child: Text(context.l10n.experiences),
-            ),
-            TextButton(
-              onPressed: () => const ProjectsRoute().go(context),
-              child: Text(context.l10n.projects),
-            ),
-            TextButton(
-              onPressed: () => const ResumeRoute().go(context),
-              child: Text(context.l10n.resume),
-            ),
-            const ThemeSwitcherIconButton(),
-          ],
-        }),
+        ...switch (ResponsiveLayout.of(context)) {
+          ResponsiveLayout.xs || ResponsiveLayout.sm => [
+              const RootMenuIconButton(),
+            ],
+          _ => [
+              TextButton(
+                onPressed: () => const HomeRoute().go(context),
+                child: Text(context.l10n.home),
+              ),
+              TextButton(
+                onPressed: () => const ExperiencesRoute().go(context),
+                child: Text(context.l10n.experiences),
+              ),
+              TextButton(
+                onPressed: () => const ProjectsRoute().go(context),
+                child: Text(context.l10n.projects),
+              ),
+              TextButton(
+                onPressed: () => const ResumeRoute().go(context),
+                child: Text(context.l10n.resume),
+              ),
+              const ThemeSwitcherIconButton(),
+            ],
+        },
       ],
     );
   }
