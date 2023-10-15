@@ -49,6 +49,7 @@ class AppTheme {
         secondaryContainer: Colors.grey,
         primary: _materialDark,
         surface: _materialLight,
+        background: _materialLight,
         surfaceVariant: _materialLight,
         onSurface: _dark,
       ),
