@@ -16,6 +16,10 @@ class AppTheme {
       textTheme: textTheme.copyWith(
         displayLarge:
             textTheme.displayLarge?.copyWith(fontWeight: FontWeight.bold),
+        displayMedium:
+            textTheme.displayMedium?.copyWith(fontWeight: FontWeight.bold),
+        displaySmall:
+            textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }
@@ -31,6 +35,10 @@ class AppTheme {
       textTheme: textTheme.copyWith(
         displayLarge:
             textTheme.displayLarge?.copyWith(fontWeight: FontWeight.bold),
+        displayMedium:
+            textTheme.displayMedium?.copyWith(fontWeight: FontWeight.bold),
+        displaySmall:
+            textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold),
       ),
     );
   }
