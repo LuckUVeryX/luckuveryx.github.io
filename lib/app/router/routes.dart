@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luckuveryx/features/experiences/experiences.dart';
 import 'package:luckuveryx/features/home/home.dart';
 import 'package:luckuveryx/features/root/root.dart';
 
@@ -41,9 +42,7 @@ class ExperiencesRoute extends GoRouteData {
   static const path = '/experiences';
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Center(
-      child: Text(path),
-    );
+    return const ExperiencesPage();
   }
 }
 
