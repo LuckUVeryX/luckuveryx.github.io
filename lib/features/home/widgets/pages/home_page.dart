@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:luckuveryx/app/router/router.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
+import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -22,8 +23,10 @@ class HomePage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DefaultTextStyle(
-                    style: ResponsiveLayout.displayStyleOf(context)!,
+                  AnimatedTextStyle(
+                    style: ResponsiveLayout.displayStyleOf(context)!.copyWith(
+                      color: context.colorScheme.primary,
+                    ),
                     child: AnimatedFadeIn(
                       offset: const Offset(0, 120),
                       child: AnimatedTextKit(
