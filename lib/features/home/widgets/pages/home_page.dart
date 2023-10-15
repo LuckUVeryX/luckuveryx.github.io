@@ -28,6 +28,7 @@ class HomePage extends StatelessWidget {
                       color: context.colorScheme.primary,
                     ),
                     child: AnimatedFadeIn(
+                      offset: const Offset(0, 120),
                       child: AnimatedTextKit(
                         repeatForever: true,
                         animatedTexts: [
@@ -45,6 +46,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Spacing.sp8,
                   AnimatedFadeIn(
+                    offset: const Offset(0, 120),
                     offsetDuration: const Duration(milliseconds: 50),
                     child: StyledRichText(
                       text: context.l10n.homeContent,
@@ -55,6 +57,7 @@ class HomePage extends StatelessWidget {
               ),
               Spacing.sp8,
               AnimatedFadeIn(
+                offset: const Offset(0, 120),
                 offsetDuration: const Duration(milliseconds: 100),
                 child: NextPageButton(
                   label: context.l10n.viewExperiences,
@@ -62,6 +65,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               const AnimatedFadeIn(
+                offset: Offset(0, 120),
                 offsetDuration: Duration(milliseconds: 150),
                 child: SocialButtons(),
               ),

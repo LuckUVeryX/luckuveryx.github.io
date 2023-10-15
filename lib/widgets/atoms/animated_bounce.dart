@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-double _useBounce({
-  required Duration duration,
-}) {
+double _useBounce({required Duration duration}) {
   final controller = useAnimationController(duration: duration);
   useEffect(
     () {

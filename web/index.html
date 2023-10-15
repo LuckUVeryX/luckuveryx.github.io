@@ -21,7 +21,7 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="LuckUVeryX">
 
-  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#000000">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -34,76 +34,141 @@
 
   <title>Luckuveryx</title>
   <link rel="manifest" href="manifest.json">
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    const serviceWorkerVersion = null;
+  </script>
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js" defer></script>
 </head>
 
 <body>
+  <style>
+    /* Light mode */
+    @media (prefers-color-scheme: light) {
+      body {
+        background-color: #FCFCFD;
+      }
+    }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+      }
+    }
+
+    body {
+      height: 100vh;
+      width: 100vw;
+      margin: 0px;
+    }
+
+    .main-content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease-out;
+    }
+
+    /* ===== Loader CSS 👇 =====*/
+    img {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+
+    .loader {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+      animation: animate 1.2s linear infinite;
+    }
+
+    @keyframes animate {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loader span {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 60%;
+      background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+    }
+
+    .loader span:nth-child(1) {
+      filter: blur(5px);
+    }
+
+    .loader span:nth-child(2) {
+      filter: blur(10px);
+    }
+
+    .loader span:nth-child(3) {
+      filter: blur(25px);
+    }
+
+    .loader span:nth-child(4) {
+      filter: blur(50px);
+    }
+
+    .loader:after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: #191919;
+      border-radius: 50%;
+    }
+  </style>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = null;
-    var scriptLoaded = false;
-    function loadMainDartJs() {
-      if (scriptLoaded) {
-        return;
-      }
-      scriptLoaded = true;
-      var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
-      scriptTag.type = 'application/javascript';
-      document.body.append(scriptTag);
+    function delay(time) {
+      return new Promise(resolve => setTimeout(resolve, time));
     }
 
-    if ('serviceWorker' in navigator) {
-      // Service workers are supported. Use them.
-      window.addEventListener('load', function () {
-        // Wait for registration to finish before dropping the <script> tag.
-        // Otherwise, the browser will load the script multiple times,
-        // potentially different versions.
-        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-        navigator.serviceWorker.register(serviceWorkerUrl)
-          .then((reg) => {
-            function waitForActivation(serviceWorker) {
-              serviceWorker.addEventListener('statechange', () => {
-                if (serviceWorker.state == 'activated') {
-                  console.log('Installed new service worker.');
-                  loadMainDartJs();
-                }
-              });
-            }
-            if (!reg.active && (reg.installing || reg.waiting)) {
-              // No active web worker and we have installed or are installing
-              // one for the first time. Simply wait for it to activate.
-              waitForActivation(reg.installing || reg.waiting);
-            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
-              // When the app updates the serviceWorkerVersion changes, so we
-              // need to ask the service worker to update.
-              console.log('New service worker available.');
-              reg.update();
-              waitForActivation(reg.installing);
-            } else {
-              // Existing service worker is still good.
-              console.log('Loading app from service worker.');
-              loadMainDartJs();
-            }
-          });
-
-        // If service worker doesn't succeed in a reasonable amount of time,
-        // fallback to plaint <script> tag.
-        setTimeout(() => {
-          if (!scriptLoaded) {
-            console.warn(
-              'Failed to load app from service worker. Falling back to plain <script> tag.',
-            );
-            loadMainDartJs();
-          }
-        }, 4000);
+    window.addEventListener('load', function (ev) {
+      var loaderContent = document.querySelector('#loader-content');
+      // Download main.dart.js
+      _flutter.loader.loadEntrypoint({
+        serviceWorker: {
+          serviceWorkerVersion: serviceWorkerVersion,
+        }
+      }).then(function (engineInitializer) {
+        return engineInitializer.initializeEngine();
+      }).then(async function (appRunner) {
+        loaderContent.style.opacity = "0";
+        await delay(400);
+        await appRunner.runApp();
       });
-    } else {
-      // Service workers not supported. Just drop the <script> tag.
-      loadMainDartJs();
-    }
+    });
+
   </script>
+  <div class="main-content" id="loader-content">
+    <div class="loader">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <img src="logo.png" alt="LuckUVeryX" />
+  </div>
 </body>
 
 </html>

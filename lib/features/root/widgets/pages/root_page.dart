@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/root/root.dart';
+import 'package:luckuveryx/l10n/l10n.dart';
+import 'package:luckuveryx/widgets/widgets.dart';
 
 class RootPage extends HookConsumerWidget {
   const RootPage({
@@ -15,27 +17,38 @@ class RootPage extends HookConsumerWidget {
     final isLoadingFonts = ref
         .watch(googleFontsPendingProvider.select((value) => value.isLoading));
 
-    return AnimatedOpacity(
-      opacity: isLoadingFonts ? 0 : 1,
-      duration: const Duration(milliseconds: 250),
-      curve: Curves.easeInOut,
-      child: Scaffold(
-        appBar: const RootAppBar(),
-        body: Stack(
-          children: [
-            const Positioned(
-              left: -800,
-              bottom: 0,
-              child: RootBackgroundText(),
-            ),
-            const Positioned(
-              top: 0,
-              right: -800,
-              child: RootBackgroundText(),
-            ),
-            navigator,
-          ],
+    if (isLoadingFonts) {
+      return Scaffold(
+        body: Center(
+          child: LoadingIndicator(
+            label: context.l10n.loadingFonts,
+          ),
         ),
+      );
+    }
+
+    return Scaffold(
+      appBar: const RootAppBar(),
+      body: Stack(
+        children: [
+          const Positioned(
+            left: -800,
+            bottom: 0,
+            child: AnimatedFadeIn(
+              offset: Offset(-120, 0),
+              child: RootBackgroundText(),
+            ),
+          ),
+          const Positioned(
+            top: 0,
+            right: -800,
+            child: AnimatedFadeIn(
+              offset: Offset(120, 0),
+              child: RootBackgroundText(),
+            ),
+          ),
+          navigator,
+        ],
       ),
     );
   }
