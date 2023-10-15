@@ -1,5 +1,6 @@
 {
     "@@locale": "en",
+    "loadingFonts": "Loading Fonts...",
     "home": "Home",
     "experiences": "Experiences",
     "viewExperiences":"View Experiences",

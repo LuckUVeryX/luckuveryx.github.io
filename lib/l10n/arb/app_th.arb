@@ -1,6 +1,6 @@
 {
     "@@locale": "th",
-    "footer": "<link href=\"https://github.com/LuckUVeryX/luckuveryx.github.io\">ไซต์</link> นี้สร้างขึ้นโดยใช้ <link href=\"https://flutter.dev\">Flutter </link> และปรับใช้บน <link href=\"https://pages.github.com\">หน้า GitHub</link>",
+    "loadingFonts": "กำลังโหลดแบบอักษร...",
     "home": "หน้าแรก",
     "experiences": "ประสบการณ์การทำงาน",
     "viewExperiences":"ดูประสบการณ์",
