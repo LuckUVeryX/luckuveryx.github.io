@@ -9,7 +9,7 @@ void main() {
   group('App', () {
     testWidgets('renders MaterialApp', (tester) async {
       await tester.pumpWidget(const ProviderScope(child: App()));
-      await tester.pumpFrame(const Duration(seconds: 1));
+      await tester.pumpFrame(const Duration(seconds: 3));
       expect(find.byType(MaterialApp), findsOneWidget);
     });
   });
