@@ -15,13 +15,15 @@ class App extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final notifier = ref.watch(routerListenableProvider.notifier);
 
+    final key = useRef(GlobalKey<NavigatorState>(debugLabel: 'root'));
+
     final router = useMemoized(
       () => GoRouter(
         routes: $appRoutes,
-        navigatorKey: rootNavigatorKey,
+        navigatorKey: key.value,
         debugLogDiagnostics: true,
         refreshListenable: notifier,
-        redirect: RouterUtils.redirect,
+        redirect: (context, state) => null,
       ),
       [notifier],
     );
