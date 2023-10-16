@@ -40,12 +40,10 @@ class RootContainer extends HookWidget {
     this.child,
     super.key,
     this.margin = const EdgeInsets.all(28),
-    this.padding = const EdgeInsets.all(24),
   });
 
   final Widget? child;
   final EdgeInsets margin;
-  final EdgeInsets padding;
 
   @override
   Widget build(BuildContext context) {
@@ -77,10 +75,7 @@ class RootContainer extends HookWidget {
                 ),
               ),
             ),
-          Padding(
-            padding: padding,
-            child: child,
-          ),
+          if (child != null) child!,
         ],
       ),
     );

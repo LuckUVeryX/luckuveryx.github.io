@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luckuveryx/utils/theme_extensions.dart';
+import 'package:luckuveryx/widgets/widgets.dart';
 
 class RouteButton extends StatelessWidget {
   const RouteButton({
@@ -13,15 +14,15 @@ class RouteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      customBorder: const StadiumBorder(),
-      child: Padding(
+    return HoverButton(
+      onPressed: onPressed,
+      builder: (details) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           label,
-          style: context.textTheme.labelLarge?.copyWith(
+          style: context.textTheme.labelLarge!.copyWith(
             fontWeight: FontWeight.bold,
+            color: details.color,
           ),
         ),
       ),

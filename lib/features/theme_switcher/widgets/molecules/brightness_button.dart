@@ -18,12 +18,11 @@ class BrightnessButton extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return RotatedBox(
       quarterTurns: 3,
-      child: InkWell(
-        customBorder: const StadiumBorder(),
-        onTap: () => ref
+      child: HoverButton(
+        onPressed: () => ref
             .read(themeSwitcherControllerProvider.notifier)
             .onChanged(brightness),
-        child: Padding(
+        builder: (hover) => Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8),
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -33,6 +32,7 @@ class BrightnessButton extends HookConsumerWidget {
                     ? FontAwesomeIcons.solidSquare
                     : FontAwesomeIcons.square,
                 size: 12,
+                color: hover.color,
               ),
               Spacing.sp4,
               Text(
@@ -41,6 +41,9 @@ class BrightnessButton extends HookConsumerWidget {
                   Brightness.dark => context.l10n.dark,
                 }
                     .toUpperCase(),
+                style: context.textTheme.bodyMedium!.copyWith(
+                  color: hover.color,
+                ),
               ),
             ],
           ),

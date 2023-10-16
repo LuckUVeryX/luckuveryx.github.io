@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:luckuveryx/features/home/home.dart';
+import 'package:luckuveryx/features/projects/projects.dart';
 import 'package:luckuveryx/features/root/root.dart';
 
 part 'routes.g.dart';
@@ -35,7 +36,7 @@ class ProjectsRoute extends GoRouteData {
   static const path = '/projects';
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Center(child: Text(path));
+    return const ProjectsPage();
   }
 }
 

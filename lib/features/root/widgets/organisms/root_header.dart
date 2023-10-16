@@ -12,46 +12,49 @@ class RootHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 8),
-          child: Text(
-            'Ryan Yip',
-            style: context.textTheme.displaySmall,
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Text(
+              'Ryan Yip',
+              style: context.textTheme.displaySmall,
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 8),
-          child: Text(
-            'LuckUVeryx',
-            style: context.textTheme.titleSmall,
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Text(
+              'LuckUVeryx',
+              style: context.textTheme.titleSmall,
+            ),
           ),
-        ),
-        Spacing.sp24,
-        RouteButtonBuilder(
-          path: HomeRoute.path,
-          label: context.l10n.home,
-          onPressed: () => const HomeRoute().go(context),
-        ),
-        RouteButtonBuilder(
-          path: ProjectsRoute.path,
-          label: context.l10n.projects,
-          onPressed: () => const ProjectsRoute().go(context),
-        ),
-        RouteButtonBuilder(
-          path: InfoRoute.path,
-          label: context.l10n.info,
-          onPressed: () => const InfoRoute().go(context),
-        ),
-        RouteButtonBuilder(
-          path: ContactRoute.path,
-          label: context.l10n.contact,
-          onPressed: () => const ContactRoute().go(context),
-        ),
-      ],
+          Spacing.sp24,
+          RouteButtonBuilder(
+            path: HomeRoute.path,
+            label: context.l10n.home,
+            onPressed: () => const HomeRoute().go(context),
+          ),
+          RouteButtonBuilder(
+            path: ProjectsRoute.path,
+            label: context.l10n.projects,
+            onPressed: () => const ProjectsRoute().go(context),
+          ),
+          RouteButtonBuilder(
+            path: InfoRoute.path,
+            label: context.l10n.info,
+            onPressed: () => const InfoRoute().go(context),
+          ),
+          RouteButtonBuilder(
+            path: ContactRoute.path,
+            label: context.l10n.contact,
+            onPressed: () => const ContactRoute().go(context),
+          ),
+        ],
+      ),
     );
   }
 }
