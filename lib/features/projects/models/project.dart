@@ -146,12 +146,6 @@ class Evlve extends Project {
           links: [
             Link(
               url: Uri.parse(
-                'https://github.com/LuckUVeryX/evlve',
-              ),
-              label: _gitHub,
-            ),
-            Link(
-              url: Uri.parse(
                 'https://play.google.com/store/apps/details?id=com.evolve.evlve',
               ),
               label: _googlePlay,
@@ -161,6 +155,12 @@ class Evlve extends Project {
                 'https://testflight.apple.com/join/eS0JF0F1',
               ),
               label: _testFlight,
+            ),
+            Link(
+              url: Uri.parse(
+                'https://github.com/LuckUVeryX/evlve',
+              ),
+              label: _gitHub,
             ),
           ],
         );
