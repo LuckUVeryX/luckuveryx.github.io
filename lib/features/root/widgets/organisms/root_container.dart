@@ -39,11 +39,9 @@ class RootContainer extends HookWidget {
   const RootContainer({
     this.child,
     super.key,
-    this.margin = const EdgeInsets.all(28),
   });
 
   final Widget? child;
-  final EdgeInsets margin;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +54,7 @@ class RootContainer extends HookWidget {
           color: context.colorScheme.onBackground,
         ),
       ),
-      margin: margin,
+      margin: const EdgeInsets.all(28).copyWith(left: 0),
       child: Stack(
         children: [
           for (final (height, value) in waves)
