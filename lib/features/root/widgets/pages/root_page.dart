@@ -20,7 +20,7 @@ class RootPage extends HookConsumerWidget {
 
     if (isLoadingFonts) {
       return Scaffold(
-        body: RootBorder(
+        body: RootContainer(
           child: LoadingIndicator(
             label: context.l10n.loadingFonts,
           ),
@@ -41,7 +41,7 @@ class RootPage extends HookConsumerWidget {
             ],
           ),
           Expanded(
-            child: RootBorder(
+            child: RootContainer(
               margin: const EdgeInsets.all(28).copyWith(left: 0),
               child: Stack(
                 children: [
