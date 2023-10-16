@@ -18,6 +18,8 @@ class InfoLinkButton extends StatelessWidget {
     return HoverButton(
       onPressed: () => launchUrl(link.url),
       builder: (details) => Row(
+        crossAxisAlignment: CrossAxisAlignment.baseline,
+        textBaseline: TextBaseline.alphabetic,
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
@@ -29,7 +31,7 @@ class InfoLinkButton extends StatelessWidget {
           Spacing.sp4,
           FaIcon(
             FontAwesomeIcons.arrowUpRightFromSquare,
-            size: 12,
+            size: 8,
             color: details.color,
           ),
         ],

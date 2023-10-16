@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/info/info.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
@@ -16,6 +15,7 @@ class InfoPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            ResumeInfoLinks(),
             Spacing.sp40,
             ExternalInfoLinksList(),
             Spacing.sp40,
@@ -24,17 +24,5 @@ class InfoPage extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class LocationInfoLinks extends HookConsumerWidget {
-  const LocationInfoLinks({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final link = ref.watch(locationInfoLinkProvider);
-    return InfoLinkButton(link: link);
   }
 }
