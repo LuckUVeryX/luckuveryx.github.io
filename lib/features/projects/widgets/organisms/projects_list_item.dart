@@ -32,12 +32,8 @@ class ProjectsListItem extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              project.dateString(),
-              style: context.textTheme.titleMedium,
-            ),
             for (final link in project.links) ...[
-              const Text(' / '),
+              if (link != project.links.first) const Text(' / '),
               HoverButton(
                 onPressed: () => launchUrl(link.url),
                 builder: (details) => Text(
@@ -50,6 +46,10 @@ class ProjectsListItem extends StatelessWidget {
               ),
             ],
           ],
+        ),
+        Text(
+          project.dateString(),
+          style: context.textTheme.titleMedium,
         ),
         Spacing.sp12,
       ],
