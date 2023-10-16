@@ -10,8 +10,11 @@ class ThemeSwitcherController extends _$ThemeSwitcherController {
     return ThemeMode.system;
   }
 
-  void onChanged(ThemeMode value) {
-    state = value;
+  void onChanged(Brightness brightness) {
+    state = switch (brightness) {
+      Brightness.light => ThemeMode.light,
+      Brightness.dark => ThemeMode.dark,
+    };
     return;
   }
 }
