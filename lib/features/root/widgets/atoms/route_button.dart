@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luckuveryx/utils/theme_extensions.dart';
 
 class RouteButton extends StatelessWidget {
   const RouteButton({
@@ -13,6 +14,11 @@ class RouteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      style: TextButton.styleFrom(
+        textStyle: context.textTheme.labelLarge?.copyWith(
+          fontWeight: FontWeight.bold,
+        ),
+      ),
       onPressed: onPressed,
       child: Text(label),
     );
