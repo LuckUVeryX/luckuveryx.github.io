@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/theme_switcher/theme_switcher.dart';
@@ -23,36 +22,31 @@ class BrightnessButton extends HookConsumerWidget {
         onPressed: () => ref
             .read(themeSwitcherControllerProvider.notifier)
             .onChanged(brightness),
-        builder: (hover) => HookBuilder(
-          builder: (context) {
-            final color = useHoverColorAnimation(hover);
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  FaIcon(
-                    context.theme.brightness == brightness
-                        ? FontAwesomeIcons.solidSquare
-                        : FontAwesomeIcons.square,
-                    size: 12,
-                    color: color,
-                  ),
-                  Spacing.sp4,
-                  Text(
-                    switch (brightness) {
-                      Brightness.light => context.l10n.light,
-                      Brightness.dark => context.l10n.dark,
-                    }
-                        .toUpperCase(),
-                    style: context.textTheme.bodyMedium!.copyWith(
-                      color: color,
-                    ),
-                  ),
-                ],
+        builder: (hover) => Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              FaIcon(
+                context.theme.brightness == brightness
+                    ? FontAwesomeIcons.solidSquare
+                    : FontAwesomeIcons.square,
+                size: 12,
+                color: hover.color,
               ),
-            );
-          },
+              Spacing.sp4,
+              Text(
+                switch (brightness) {
+                  Brightness.light => context.l10n.light,
+                  Brightness.dark => context.l10n.dark,
+                }
+                    .toUpperCase(),
+                style: context.textTheme.bodyMedium!.copyWith(
+                  color: hover.color,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:luckuveryx/utils/theme_extensions.dart';
+import 'package:luckuveryx/widgets/widgets.dart';
 
-Color? useHoverColorAnimation(bool hover) {
+HoverDetails _useHover(bool hover) {
   final controller = useAnimationController(
     duration: const Duration(milliseconds: 200),
   );
@@ -15,11 +16,18 @@ Color? useHoverColorAnimation(bool hover) {
     [hover],
   );
 
-  return useAnimation(
+  final color = useAnimation(
     ColorTween(
       begin: useContext().colorScheme.onBackground,
       end: useContext().theme.disabledColor,
     ).chain(CurveTween(curve: Curves.easeOut)).animate(controller),
+  );
+
+  if (color == null) throw Exception('useHoverColorAnimation color is null');
+
+  return HoverDetails(
+    isHover: hover,
+    color: color,
   );
 }
 
@@ -31,11 +39,13 @@ class HoverButton extends HookWidget {
   });
 
   final VoidCallback? onPressed;
-  final Widget Function(bool hover) builder;
+  final Widget Function(HoverDetails details) builder;
 
   @override
   Widget build(BuildContext context) {
     final hover = useState(false);
+    final details = _useHover(hover.value);
+
     return GestureDetector(
       onTap: onPressed,
       onTapDown: (_) => hover.value = true,
@@ -45,7 +55,7 @@ class HoverButton extends HookWidget {
         cursor: SystemMouseCursors.click,
         onEnter: (_) => hover.value = true,
         onExit: (_) => hover.value = false,
-        child: builder(hover.value),
+        child: builder(details),
       ),
     );
   }
