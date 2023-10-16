@@ -10,7 +10,7 @@ class RouteButtonPlaceholder extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         height: 6,
         width: 6,
         decoration: BoxDecoration(
