@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/projects/projects.dart';
 
-class ProjectsPage extends StatelessWidget {
+class ProjectsPage extends HookConsumerWidget {
   const ProjectsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final projects = Project.values;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final projects = ref.watch(projectsProvider);
     return Align(
       alignment: Alignment.topRight,
       child: ListView.builder(

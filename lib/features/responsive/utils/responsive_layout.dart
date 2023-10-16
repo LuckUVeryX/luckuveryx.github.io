@@ -72,7 +72,6 @@ enum ResponsiveLayout {
     switch (of(context)) {
       case ResponsiveLayout.xs:
       case ResponsiveLayout.sm:
-        return context.textTheme.bodySmall;
       case ResponsiveLayout.md:
       case ResponsiveLayout.lg:
         return context.textTheme.bodyMedium;
