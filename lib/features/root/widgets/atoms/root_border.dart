@@ -6,7 +6,7 @@ class RootBorder extends StatelessWidget {
     this.child,
     super.key,
     this.margin = const EdgeInsets.all(28),
-    this.padding = const EdgeInsets.all(16),
+    this.padding = const EdgeInsets.all(24),
   });
 
   final Widget? child;
