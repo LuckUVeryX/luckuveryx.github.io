@@ -19,7 +19,10 @@ class RootPage extends HookConsumerWidget {
       body: Padding(
         padding: EdgeInsets.all(
           switch (ResponsiveLayout.of(context)) {
-            ResponsiveLayout.xs || ResponsiveLayout.sm => 0,
+            ResponsiveLayout.md ||
+            ResponsiveLayout.xs ||
+            ResponsiveLayout.sm =>
+              0,
             _ => 24,
           },
         ),
