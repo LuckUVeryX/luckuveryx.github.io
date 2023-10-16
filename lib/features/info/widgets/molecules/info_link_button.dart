@@ -31,7 +31,7 @@ class InfoLinkButton extends StatelessWidget {
           Spacing.sp4,
           FaIcon(
             FontAwesomeIcons.arrowUpRightFromSquare,
-            size: 8,
+            size: context.titleStyle!.fontSize! - 8,
             color: details.color,
           ),
         ],
