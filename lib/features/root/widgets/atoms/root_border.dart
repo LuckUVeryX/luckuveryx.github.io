@@ -23,7 +23,7 @@ class RootBorder extends StatelessWidget {
           color: context.colorScheme.onBackground,
         ),
       ),
-      margin: const EdgeInsets.all(28),
+      margin: margin,
       padding: padding,
       child: child,
     );
