@@ -18,6 +18,12 @@ class AppTheme {
 
     return theme.copyWith(
       textTheme: GoogleFonts.ralewayTextTheme(ThemeData.light().textTheme),
+      pageTransitionsTheme: PageTransitionsTheme(
+        builders: {
+          for (final platform in TargetPlatform.values)
+            platform: const _FadeTransitionBuilder(),
+        },
+      ),
     );
   }
 
@@ -32,12 +38,18 @@ class AppTheme {
 
     return theme.copyWith(
       textTheme: GoogleFonts.ralewayTextTheme(ThemeData.dark().textTheme),
+      pageTransitionsTheme: PageTransitionsTheme(
+        builders: {
+          for (final platform in TargetPlatform.values)
+            platform: const _FadeTransitionBuilder(),
+        },
+      ),
     );
   }
 }
 
-class FadeTransitionBuilder extends PageTransitionsBuilder {
-  const FadeTransitionBuilder();
+class _FadeTransitionBuilder extends PageTransitionsBuilder {
+  const _FadeTransitionBuilder();
 
   @override
   Widget buildTransitions<T>(
