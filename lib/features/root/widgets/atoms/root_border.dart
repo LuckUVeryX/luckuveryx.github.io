@@ -19,7 +19,6 @@ class RootBorder extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         border: Border.all(
-          width: 0.5,
           color: context.colorScheme.onBackground,
         ),
       ),
