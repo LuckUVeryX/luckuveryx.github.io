@@ -20,7 +20,7 @@ sealed class Project {
   final Uri url;
   final DateTime startDate;
   final DateTime? endDate;
-  final List<Link> links;
+  final List<ProjectLink> links;
 
   String dateString() {
     final dateFormat = DateFormat.yMMM();
@@ -48,13 +48,13 @@ class Glints extends Project {
           startDate: DateTime(2022, 10),
           endDate: null,
           links: [
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://apps.apple.com/us/app/glints-jobs-chat-hr-career/id1613169954',
               ),
               label: _appStore,
             ),
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://play.google.com/store/apps/details?id=com.glints.candidate',
               ),
@@ -72,13 +72,13 @@ class Osim extends Project {
           startDate: DateTime(2021, 11),
           endDate: DateTime(2022, 10),
           links: [
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://apps.apple.com/sg/app/osim-well-being/id1588337384',
               ),
               label: _appStore,
             ),
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://play.google.com/store/apps/details?id=com.osim.oneapp&hl=en&gl=US',
               ),
@@ -96,13 +96,13 @@ class Scratchbac extends Project {
           startDate: DateTime(2020, 9),
           endDate: DateTime(2021, 11),
           links: [
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://apps.apple.com/sg/app/scratchbac/id1587462661',
               ),
               label: _appStore,
             ),
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://play.google.com/store/apps/details?id=com.scratchbac.baladi',
               ),
@@ -120,13 +120,13 @@ class Portfolio extends Project {
           startDate: DateTime(2023, 10),
           endDate: null,
           links: [
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://luckuveryx.github.io',
               ),
               label: _website,
             ),
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://github.com/LuckUVeryX/luckuveryx.github.io',
               ),
@@ -144,19 +144,19 @@ class Evlve extends Project {
           startDate: DateTime(2023, 5),
           endDate: null,
           links: [
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://play.google.com/store/apps/details?id=com.evolve.evlve',
               ),
               label: _googlePlay,
             ),
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://testflight.apple.com/join/eS0JF0F1',
               ),
               label: _testFlight,
             ),
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://github.com/LuckUVeryX/evlve',
               ),
@@ -174,7 +174,7 @@ class VjChoirArchives extends Project {
           startDate: DateTime(2022, 9),
           endDate: null,
           links: [
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://github.com/LuckUVeryX/vjchoir_archives',
               ),
@@ -192,7 +192,7 @@ class BubuDex extends Project {
           startDate: DateTime(2021, 10),
           endDate: null,
           links: [
-            Link(
+            ProjectLink(
               url: Uri.parse(
                 'https://github.com/LuckUVeryX/bubudex',
               ),
