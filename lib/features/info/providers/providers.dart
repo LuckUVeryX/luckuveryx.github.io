@@ -1,1 +1,2 @@
-export 'info_provider.dart';
+export 'external_info_links_provider.dart';
+export 'location_info_links_provider.dart';

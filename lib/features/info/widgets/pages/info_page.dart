@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:luckuveryx/features/responsive/utils/utils.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:luckuveryx/features/info/info.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class InfoPage extends StatelessWidget {
@@ -8,36 +8,33 @@ class InfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
+    return const Align(
       alignment: Alignment.bottomLeft,
       child: Padding(
-        padding: const EdgeInsets.all(24),
+        padding: EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            HoverButton(
-              onPressed: () {},
-              builder: (details) => Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    'LinkedIn',
-                    style: context.titleStyle?.copyWith(
-                      color: details.color,
-                    ),
-                  ),
-                  Spacing.sp4,
-                  FaIcon(
-                    FontAwesomeIcons.arrowUpRightFromSquare,
-                    size: 12,
-                    color: details.color,
-                  ),
-                ],
-              ),
-            ),
+            Spacing.sp40,
+            ExternalInfoLinksList(),
+            Spacing.sp40,
+            LocationInfoLinks(),
           ],
         ),
       ),
     );
+  }
+}
+
+class LocationInfoLinks extends HookConsumerWidget {
+  const LocationInfoLinks({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final link = ref.watch(locationInfoLinkProvider);
+    return InfoLinkButton(link: link);
   }
 }
