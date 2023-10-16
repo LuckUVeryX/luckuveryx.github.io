@@ -5,7 +5,7 @@ import 'package:luckuveryx/widgets/widgets.dart';
 
 HoverDetails _useHover(bool hover) {
   final controller = useAnimationController(
-    duration: const Duration(milliseconds: 200),
+    duration: const Duration(milliseconds: 100),
   );
 
   useEffect(

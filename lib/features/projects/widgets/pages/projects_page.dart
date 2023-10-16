@@ -34,18 +34,29 @@ class ProjectsPage extends StatelessWidget {
               ),
             );
           }
-          return HoverButton(
-            onPressed: () {},
-            builder: (hover) => ListTile(
-              titleTextStyle: context.textTheme.displayMedium,
-              subtitleTextStyle: context.textTheme.titleMedium,
-              title: const Text(
-                'Title',
-                textAlign: TextAlign.right,
-              ),
-              subtitle: const Text(
-                'Year / Link / Link',
-                textAlign: TextAlign.right,
+          return Align(
+            alignment: Alignment.centerRight,
+            child: IntrinsicWidth(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  HoverButton(
+                    onPressed: () {},
+                    builder: (hover) {
+                      return Text(
+                        'Title',
+                        textAlign: TextAlign.right,
+                        style: context.textTheme.displayMedium
+                            ?.copyWith(color: hover.color),
+                      );
+                    },
+                  ),
+                  Text(
+                    'Year / Link / Link',
+                    textAlign: TextAlign.right,
+                    style: context.textTheme.titleMedium,
+                  ),
+                ],
               ),
             ),
           );
