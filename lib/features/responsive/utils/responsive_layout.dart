@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:luckuveryx/utils/theme_extensions.dart';
 
@@ -42,27 +40,66 @@ enum ResponsiveLayout {
     );
   }
 
-  static EdgeInsets paddingOf(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    final target = of(context).value;
-    return EdgeInsets.symmetric(
-      horizontal: (max(0, width - target) ~/ 2) + 16.0,
-    );
+  static TextStyle? _displayStyleOf(BuildContext context) {
+    switch (of(context)) {
+      case ResponsiveLayout.xs:
+      case ResponsiveLayout.sm:
+        return context.textTheme.displaySmall;
+      case ResponsiveLayout.md:
+      case ResponsiveLayout.lg:
+        return context.textTheme.displayMedium;
+      case ResponsiveLayout.xl:
+      case ResponsiveLayout.xxl:
+        return context.textTheme.displayLarge;
+    }
   }
 
-  static TextStyle? displayStyleOf(BuildContext context) {
-    final layout = of(context);
-    return switch (layout) {
-      ResponsiveLayout.xs => context.textTheme.displaySmall,
-      ResponsiveLayout.sm => context.textTheme.displayMedium,
-      _ => context.textTheme.displayLarge,
-    };
+  static TextStyle? _titleStyleOf(BuildContext context) {
+    switch (of(context)) {
+      case ResponsiveLayout.xs:
+      case ResponsiveLayout.sm:
+        return context.textTheme.titleSmall;
+      case ResponsiveLayout.md:
+      case ResponsiveLayout.lg:
+        return context.textTheme.titleMedium;
+      case ResponsiveLayout.xl:
+      case ResponsiveLayout.xxl:
+        return context.textTheme.titleLarge;
+    }
+  }
+
+  static TextStyle? _bodyStyleOf(BuildContext context) {
+    switch (of(context)) {
+      case ResponsiveLayout.xs:
+      case ResponsiveLayout.sm:
+        return context.textTheme.bodySmall;
+      case ResponsiveLayout.md:
+      case ResponsiveLayout.lg:
+        return context.textTheme.bodyMedium;
+      case ResponsiveLayout.xl:
+      case ResponsiveLayout.xxl:
+        return context.textTheme.bodyLarge;
+    }
+  }
+
+  static TextStyle? _labelStyleOf(BuildContext context) {
+    switch (of(context)) {
+      case ResponsiveLayout.xs:
+      case ResponsiveLayout.sm:
+        return context.textTheme.labelSmall;
+      case ResponsiveLayout.md:
+      case ResponsiveLayout.lg:
+        return context.textTheme.labelMedium;
+      case ResponsiveLayout.xl:
+      case ResponsiveLayout.xxl:
+        return context.textTheme.labelLarge;
+    }
   }
 }
 
 /// [ResponsiveLayout] values referenced from
 /// https://tailwindcss.com/docs/responsive-design
-extension ResponsiveBreakpointX on ResponsiveLayout {
+extension ResponsiveLayoutX on ResponsiveLayout {
   double get value {
     return switch (this) {
       ResponsiveLayout.xs => 320,
@@ -73,4 +110,11 @@ extension ResponsiveBreakpointX on ResponsiveLayout {
       ResponsiveLayout.xxl => 1536
     };
   }
+}
+
+extension ResponsiveContextX on BuildContext {
+  TextStyle? get displayStyle => ResponsiveLayout._displayStyleOf(this);
+  TextStyle? get titleStyle => ResponsiveLayout._titleStyleOf(this);
+  TextStyle? get bodyStyle => ResponsiveLayout._bodyStyleOf(this);
+  TextStyle? get labelStyle => ResponsiveLayout._labelStyleOf(this);
 }

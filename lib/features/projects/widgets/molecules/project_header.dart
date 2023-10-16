@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
-import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class ProjectHeader extends StatelessWidget {
@@ -22,7 +22,7 @@ class ProjectHeader extends StatelessWidget {
         Spacing.sp8,
         Text(
           context.l10n.projects,
-          style: context.textTheme.titleSmall,
+          style: context.titleStyle,
         ),
       ],
     );
