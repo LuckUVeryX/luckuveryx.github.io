@@ -43,7 +43,6 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       primarySwatch: _materialDark,
-      fontFamily: GoogleFonts.raleway().fontFamily,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       colorScheme: ColorScheme.light(
         secondaryContainer: Colors.grey,
@@ -63,7 +62,7 @@ class AppTheme {
 
     final textTheme = theme.textTheme;
     return theme.copyWith(
-      textTheme: textTheme.copyWith(),
+      textTheme: GoogleFonts.ralewayTextTheme(textTheme),
     );
   }
 
@@ -72,7 +71,6 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       primarySwatch: _materialLight,
-      fontFamily: GoogleFonts.raleway().fontFamily,
       visualDensity: VisualDensity.adaptivePlatformDensity,
       colorScheme: ColorScheme.dark(
         primary: _materialLight,
@@ -90,7 +88,7 @@ class AppTheme {
 
     final textTheme = theme.textTheme;
     return theme.copyWith(
-      textTheme: textTheme.copyWith(),
+      textTheme: GoogleFonts.ralewayTextTheme(textTheme),
     );
   }
 }
