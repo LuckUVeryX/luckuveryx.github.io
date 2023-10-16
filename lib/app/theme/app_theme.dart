@@ -72,6 +72,7 @@ class AppTheme {
         primary: _materialLight,
         secondary: Colors.grey,
         tertiary: Colors.grey,
+        onBackground: _light.withOpacity(0.95),
       ),
     );
 
