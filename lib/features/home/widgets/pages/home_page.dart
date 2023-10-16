@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
+import 'package:luckuveryx/utils/theme_extensions.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
         width: 200,
         child: Text(
           context.l10n.homeContent,
+          style: context.textTheme.bodyMedium,
         ),
       ),
     );

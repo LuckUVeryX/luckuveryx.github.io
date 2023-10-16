@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:luckuveryx/features/projects/projects.dart';
-import 'package:luckuveryx/utils/theme_extensions.dart';
+import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,7 +23,7 @@ class ProjectsListItem extends StatelessWidget {
             return Text(
               project.title,
               textAlign: TextAlign.right,
-              style: context.textTheme.displaySmall?.copyWith(
+              style: context.displayStyle?.copyWith(
                 color: hover.color,
               ),
             );
@@ -38,7 +38,7 @@ class ProjectsListItem extends StatelessWidget {
                 onPressed: () => launchUrl(link.url),
                 builder: (details) => Text(
                   link.label,
-                  style: context.textTheme.titleMedium?.copyWith(
+                  style: context.titleStyle?.copyWith(
                     color: details.color,
                     fontWeight: FontWeight.bold,
                   ),
@@ -49,7 +49,7 @@ class ProjectsListItem extends StatelessWidget {
         ),
         Text(
           project.dateString(),
-          style: context.textTheme.titleMedium,
+          style: context.titleStyle,
         ),
         Spacing.sp12,
       ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:luckuveryx/app/router/router.dart';
+import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/features/root/root.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
-import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class RootHeader extends StatelessWidget {
@@ -22,14 +22,14 @@ class RootHeader extends StatelessWidget {
             padding: const EdgeInsets.only(left: 8),
             child: Text(
               'Ryan Yip',
-              style: context.textTheme.displaySmall,
+              style: context.displayStyle,
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
             child: Text(
               'LuckUVeryx',
-              style: context.textTheme.titleSmall,
+              style: context.titleStyle,
             ),
           ),
           Spacing.sp24,
