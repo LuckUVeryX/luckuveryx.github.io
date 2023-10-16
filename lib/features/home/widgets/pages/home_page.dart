@@ -8,7 +8,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.centerRight,
-      child: SizedBox(
+      child: Container(
+        padding: const EdgeInsets.only(right: 24),
         width: 200,
         child: Text(
           context.l10n.homeContent,
