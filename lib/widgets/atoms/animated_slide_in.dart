@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-double _useFadeIn({
+double _useSlideIn({
   required Duration duration,
   required Curve curve,
 }) {
@@ -13,30 +13,35 @@ double _useFadeIn({
     },
     const [],
   );
-  return useAnimation(CurvedAnimation(parent: controller, curve: curve));
+  return useAnimation(
+    CurvedAnimation(parent: controller, curve: curve)
+        .drive(Tween<double>(begin: 1, end: 0)),
+  );
 }
 
-class AnimatedFadeIn extends HookWidget {
-  const AnimatedFadeIn({
+class AnimatedSlideIn extends HookWidget {
+  const AnimatedSlideIn({
     required this.child,
     this.duration = const Duration(milliseconds: 400),
     this.curve = Curves.easeInOut,
+    this.offset = const Offset(0, 20),
     super.key,
   });
 
   final Widget child;
   final Duration duration;
   final Curve curve;
+  final Offset offset;
 
   @override
   Widget build(BuildContext context) {
-    final fade = _useFadeIn(
+    final translate = _useSlideIn(
       curve: curve,
       duration: duration,
     );
 
-    return Opacity(
-      opacity: fade,
+    return Transform.translate(
+      offset: offset * translate,
       child: child,
     );
   }
