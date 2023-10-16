@@ -1,1 +1,1 @@
-export 'theme_switcher_icon_button.dart';
+export 'brightness_button.dart';

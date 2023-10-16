@@ -1,6 +1,8 @@
 {
     "@@locale": "en",
     "loadingFonts": "Loading Fonts...",
+    "light": "Light",
+    "dark": "Dark",
     "home": "Home",
     "projects": "Projects",
     "info": "Info",
