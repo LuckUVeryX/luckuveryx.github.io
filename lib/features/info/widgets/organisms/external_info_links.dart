@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/info/info.dart';
 
-class ExternalInfoLinksList extends HookConsumerWidget {
-  const ExternalInfoLinksList({
+class ExternalInfoLinks extends HookConsumerWidget {
+  const ExternalInfoLinks({
     super.key,
   });
 
