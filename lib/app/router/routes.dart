@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:luckuveryx/features/contact/widgets/pages/contact_page.dart';
 import 'package:luckuveryx/features/home/home.dart';
 import 'package:luckuveryx/features/info/info.dart';
 import 'package:luckuveryx/features/projects/projects.dart';
@@ -55,6 +56,6 @@ class ContactRoute extends GoRouteData {
   static const path = '/contact';
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const Center(child: Text(path));
+    return const ContactPage();
   }
 }
