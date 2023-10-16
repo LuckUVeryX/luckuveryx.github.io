@@ -26,7 +26,7 @@ class ProjectsPage extends HookConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 24),
               child: IntrinsicWidth(
-                child: ProjectsListItem(project: project),
+                child: ProjectListItem(project: project),
               ),
             ),
           );
