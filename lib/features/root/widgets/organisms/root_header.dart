@@ -30,7 +30,7 @@ class RootHeader extends StatelessWidget {
             style: context.textTheme.titleSmall,
           ),
         ),
-        Spacing.sp16,
+        Spacing.sp24,
         RouteButtonBuilder(
           path: HomeRoute.path,
           label: context.l10n.home,

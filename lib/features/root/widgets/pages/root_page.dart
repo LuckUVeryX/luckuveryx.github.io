@@ -49,7 +49,9 @@ class RootPage extends HookConsumerWidget {
                   const Positioned(
                     left: 0,
                     top: 0,
-                    child: AnimatedFadeIn(child: RootHeader()),
+                    child: AnimatedFadeIn(
+                      child: RootHeader(),
+                    ),
                   ),
                 ],
               ),
