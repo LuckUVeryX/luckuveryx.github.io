@@ -8,12 +8,9 @@ class RouteButtonPlaceholder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        minimumSize: const Size(0, 32),
-      ),
-      onPressed: null,
+    return InkWell(
       child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         height: 6,
         width: 6,
         decoration: BoxDecoration(

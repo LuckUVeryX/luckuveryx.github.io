@@ -13,14 +13,18 @@ class RouteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-        textStyle: context.textTheme.labelLarge?.copyWith(
-          fontWeight: FontWeight.bold,
+    return InkWell(
+      onTap: onPressed,
+      customBorder: const StadiumBorder(),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Text(
+          label,
+          style: context.textTheme.labelLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-      onPressed: onPressed,
-      child: Text(label),
     );
   }
 }
