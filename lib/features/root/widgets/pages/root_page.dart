@@ -45,7 +45,7 @@ class RootPage extends HookConsumerWidget {
               margin: const EdgeInsets.all(28).copyWith(left: 0),
               child: Stack(
                 children: [
-                  AnimatedFadeIn(child: navigator),
+                  navigator,
                   const Positioned(
                     left: 0,
                     top: 0,

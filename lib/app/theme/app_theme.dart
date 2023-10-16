@@ -53,6 +53,12 @@ class AppTheme {
         surfaceVariant: _materialLight,
         onSurface: _dark,
       ),
+      pageTransitionsTheme: PageTransitionsTheme(
+        builders: {
+          for (final platform in TargetPlatform.values)
+            platform: const FadeTransitionBuilder(),
+        },
+      ),
     );
 
     final textTheme = theme.textTheme;
@@ -74,11 +80,38 @@ class AppTheme {
         tertiary: Colors.grey,
         onBackground: _light.withOpacity(0.95),
       ),
+      pageTransitionsTheme: PageTransitionsTheme(
+        builders: {
+          for (final platform in TargetPlatform.values)
+            platform: const FadeTransitionBuilder(),
+        },
+      ),
     );
 
     final textTheme = theme.textTheme;
     return theme.copyWith(
       textTheme: textTheme.copyWith(),
+    );
+  }
+}
+
+class FadeTransitionBuilder extends PageTransitionsBuilder {
+  const FadeTransitionBuilder();
+
+  @override
+  Widget buildTransitions<T>(
+    PageRoute<T> route,
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
+    return FadeTransition(
+      opacity: animation,
+      child: FadeTransition(
+        opacity: secondaryAnimation.drive(Tween(begin: 1, end: 0)),
+        child: child,
+      ),
     );
   }
 }
