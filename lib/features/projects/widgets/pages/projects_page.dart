@@ -40,8 +40,11 @@ class ProjectsPage extends StatelessWidget {
           final project = projects[index - 1];
           return Align(
             alignment: Alignment.centerRight,
-            child: IntrinsicWidth(
-              child: ProjectsListItem(project: project),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 24),
+              child: IntrinsicWidth(
+                child: ProjectsListItem(project: project),
+              ),
             ),
           );
         },
