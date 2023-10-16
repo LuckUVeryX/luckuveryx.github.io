@@ -17,7 +17,7 @@ class RouteButton extends StatelessWidget {
       onTap: onPressed,
       customBorder: const StadiumBorder(),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         child: Text(
           label,
           style: context.textTheme.labelLarge?.copyWith(

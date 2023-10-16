@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <!--
+  <head>
+    <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
 
@@ -15,169 +14,146 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="$FLUTTER_BASE_HREF">
+    <base href="$FLUTTER_BASE_HREF" />
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="LuckUVeryX">
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="LuckUVeryX" />
 
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FCFCFD">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212">
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#FCFCFD"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#121212"
+    />
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Luckuveryx">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Luckuveryx" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
 
-  <title>Luckuveryx</title>
-  <link rel="manifest" href="manifest.json">
+    <title>Luckuveryx</title>
+    <link rel="manifest" href="manifest.json" />
 
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = null;
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
-</head>
+    <script>
+      // The value below is injected by flutter build, do not touch.
+      const serviceWorkerVersion = null;
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+  </head>
 
-<body>
-  <style>
-    /* Light mode */
-    @media (prefers-color-scheme: light) {
+  <body>
+    <style>
+      /* Light mode */
+      @media (prefers-color-scheme: light) {
+        body {
+          background-color: #eeeeee;
+        }
+
+        .loader {
+          background-color: rgba(51, 51, 51, 0.1);
+        }
+      }
+
+      /* Dark mode */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #121212;
+        }
+
+        .loader {
+          background-color: rgba(51, 51, 51, 1);
+        }
+      }
+
       body {
-        background-color: #EEEEEE;
+        height: 100vh;
+        width: 100vw;
+        margin: 0px;
       }
 
-      .loader {
-        background: #121212;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-      }
-    }
-
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-      }
-
-      .loader {
-        background: #EEEEEE;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-
-      }
-    }
-
-    body {
-      height: 100vh;
-      width: 100vw;
-      margin: 0px;
-    }
-
-    .main-content {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      transition: opacity 0.4s ease-out;
-    }
-
-    /* https://cssloaders.github.io */
-    .loader {
-      width: 0;
-      height: 4.8px;
-      display: inline-block;
-      position: relative;
-      box-sizing: border-box;
-      animation: animFw 2s linear infinite;
-    }
-
-    .loader::after,
-    .loader::before {
-      content: '';
-      width: 10px;
-      height: 1px;
-      position: absolute;
-      top: 9px;
-      right: -2px;
-      opacity: 0;
-      transform: rotate(-45deg) translateX(0px);
-      box-sizing: border-box;
-      animation: coli1 0.3s linear infinite;
-    }
-
-    .loader::before {
-      top: -4px;
-      transform: rotate(45deg);
-      animation: coli2 0.3s linear infinite;
-    }
-
-    @keyframes animFw {
-      0% {
-        width: 0;
-      }
-
-      100% {
+      .main-content {
+        height: 100%;
         width: 100%;
-      }
-    }
-
-    @keyframes coli1 {
-      0% {
-        transform: rotate(-45deg) translateX(0px);
-        opacity: 0.7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.4s ease-out;
       }
 
-      100% {
-        transform: rotate(-45deg) translateX(-45px);
-        opacity: 0;
+      /* https://cssloaders.github.io */
+      .loader {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        position: relative;
+        box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
+          0 5px 12px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
       }
-    }
-
-    @keyframes coli2 {
-      0% {
-        transform: rotate(45deg) translateX(0px);
-        opacity: 1;
+      .loader:before,
+      .loader:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 45%;
+        top: -40%;
+        background-color: #fff;
+        animation: wave 5s linear infinite;
       }
-
-      100% {
-        transform: rotate(45deg) translateX(-45px);
-        opacity: 0.7;
+      .loader:before {
+        border-radius: 30%;
+        background: rgba(255, 255, 255, 0.4);
+        animation: wave 5s linear infinite;
       }
-    }
-  </style>
-  <!-- This script installs service_worker.js to provide PWA functionality to
+      @keyframes wave {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
-  <script>
-    function delay(time) {
-      return new Promise(resolve => setTimeout(resolve, time));
-    }
+    <script>
+      function delay(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+      }
 
-    window.addEventListener('load', function (ev) {
-      var loaderContent = document.querySelector('#loader-content');
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function (engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(async function (appRunner) {
-        loaderContent.style.opacity = "0";
-        await delay(400);
-        await appRunner.runApp();
+      window.addEventListener("load", function (ev) {
+        var loaderContent = document.querySelector("#loader-content");
+        // Download main.dart.js
+        _flutter.loader
+          .loadEntrypoint({
+            serviceWorker: {
+              serviceWorkerVersion: serviceWorkerVersion,
+            },
+          })
+          .then(function (engineInitializer) {
+            return engineInitializer.initializeEngine();
+          })
+          .then(async function (appRunner) {
+            loaderContent.style.opacity = "0";
+            await delay(400);
+            await appRunner.runApp();
+          });
       });
-    });
-
-  </script>
-  <div class="main-content" id="loader-content">
-    <span class="loader"></span>
-  </div>
-</body>
-
+    </script>
+    <div class="main-content" id="loader-content">
+      <span class="loader"></span>
+    </div>
+  </body>
 </html>
