@@ -40,7 +40,7 @@ enum ResponsiveLayout {
     );
   }
 
-  static TextStyle? displayStyleOf(BuildContext context) {
+  static TextStyle? _displayStyleOf(BuildContext context) {
     switch (of(context)) {
       case ResponsiveLayout.xs:
       case ResponsiveLayout.sm:
@@ -54,7 +54,7 @@ enum ResponsiveLayout {
     }
   }
 
-  static TextStyle? titleStyleOf(BuildContext context) {
+  static TextStyle? _titleStyleOf(BuildContext context) {
     switch (of(context)) {
       case ResponsiveLayout.xs:
       case ResponsiveLayout.sm:
@@ -68,7 +68,7 @@ enum ResponsiveLayout {
     }
   }
 
-  static TextStyle? bodyStyleOf(BuildContext context) {
+  static TextStyle? _bodyStyleOf(BuildContext context) {
     switch (of(context)) {
       case ResponsiveLayout.xs:
       case ResponsiveLayout.sm:
@@ -82,7 +82,7 @@ enum ResponsiveLayout {
     }
   }
 
-  static TextStyle? labelStyleOf(BuildContext context) {
+  static TextStyle? _labelStyleOf(BuildContext context) {
     switch (of(context)) {
       case ResponsiveLayout.xs:
       case ResponsiveLayout.sm:
@@ -99,7 +99,7 @@ enum ResponsiveLayout {
 
 /// [ResponsiveLayout] values referenced from
 /// https://tailwindcss.com/docs/responsive-design
-extension ResponsiveBreakpointX on ResponsiveLayout {
+extension ResponsiveLayoutX on ResponsiveLayout {
   double get value {
     return switch (this) {
       ResponsiveLayout.xs => 320,
@@ -110,4 +110,11 @@ extension ResponsiveBreakpointX on ResponsiveLayout {
       ResponsiveLayout.xxl => 1536
     };
   }
+}
+
+extension ResponsiveContextX on BuildContext {
+  TextStyle? get displayStyle => ResponsiveLayout._displayStyleOf(this);
+  TextStyle? get titleStyle => ResponsiveLayout._titleStyleOf(this);
+  TextStyle? get bodyStyle => ResponsiveLayout._bodyStyleOf(this);
+  TextStyle? get labelStyle => ResponsiveLayout._labelStyleOf(this);
 }
