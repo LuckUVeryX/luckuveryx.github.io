@@ -1,5 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:luckuveryx/utils/theme_extensions.dart';
+
+Color? useHoverColorAnimation(bool hover) {
+  final controller = useAnimationController(
+    duration: const Duration(milliseconds: 200),
+  );
+
+  useEffect(
+    () {
+      controller.animateTo(hover ? 1 : 0);
+      return null;
+    },
+    [hover],
+  );
+
+  return useAnimation(
+    ColorTween(
+      begin: useContext().colorScheme.onBackground,
+      end: useContext().theme.disabledColor,
+    ).chain(CurveTween(curve: Curves.easeOut)).animate(controller),
+  );
+}
 
 class HoverButton extends HookWidget {
   const HoverButton({
