@@ -8,41 +8,44 @@ import 'package:luckuveryx/utils/theme_extensions.dart';
 Iterable<(double height, double value, Color color)> _useWaves() {
   final colorScheme = useContext().colorScheme;
 
-  /// (height, speed, offset, color)
+  /// (height, speed, color)
   final curves = [
-    (80.0, 0.5, -pi * 2, colorScheme.primary),
-    (120.0, 1.0, -pi, colorScheme.primaryContainer),
-    (160.0, 1.5, 0.0, colorScheme.secondary),
-    (200.0, 1.0, pi, colorScheme.secondaryContainer),
-    (240.0, 0.5, pi * 2, colorScheme.tertiary),
+    (080.0, 1.5, colorScheme.tertiaryContainer),
+    (120.0, 1.3, colorScheme.secondaryContainer),
+    (160.0, 1.2, colorScheme.primaryContainer),
+    (180.0, 1.0, colorScheme.tertiary),
+    (200.0, 0.8, colorScheme.secondary),
+    (240.0, 0.5, colorScheme.primary),
   ];
 
   return curves.map(
     (e) {
-      final (height, speed, offset, color) = e;
+      final (height, speed, color) = e;
 
       final controller = useAnimationController(
-        duration: Duration(milliseconds: 5000 ~/ speed),
+        duration: Duration(milliseconds: 10000 ~/ speed),
       );
+
       useEffect(
         () {
-          controller.repeat();
+          controller
+            ..value = Random().nextDouble()
+            ..repeat();
           return null;
         },
         [],
       );
 
       final value = useAnimation(
-            controller.drive(
-              Tween(begin: 0, end: 2 * pi).chain(
-                CurveTween(
-                  curve: Curves.easeInOutSine,
-                ),
-              ),
+        controller.drive(
+          Tween<double>(begin: 0, end: 2 * pi).chain(
+            CurveTween(
+              curve: Curves.easeInOutSine,
             ),
-          ) +
-          offset;
-      return (height, value, color.withOpacity(0.1));
+          ),
+        ),
+      );
+      return (height, value, color.withOpacity(0.2));
     },
   );
 }
