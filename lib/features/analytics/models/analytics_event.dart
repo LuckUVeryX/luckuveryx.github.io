@@ -15,7 +15,7 @@ class AnalyticsEvent with _$AnalyticsEvent {
   }
 
   factory AnalyticsEvent.githubViewed() {
-    return const AnalyticsEvent(eventName: 'github_iewed');
+    return const AnalyticsEvent(eventName: 'github_viewed');
   }
 
   factory AnalyticsEvent.linkedInViewed() {
