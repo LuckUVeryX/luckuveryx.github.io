@@ -30,7 +30,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-_\*Luckuveryx works on Web, and MacOS._
+_\*Luckuveryx works on Web._
 
 ---
 
