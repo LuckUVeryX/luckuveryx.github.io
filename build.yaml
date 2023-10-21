@@ -15,3 +15,4 @@ targets:
             - lib/**/router/**.dart
             - lib/**/controllers/**.dart
             - lib/**/providers/**.dart
+            - lib/**/services/**.dart
