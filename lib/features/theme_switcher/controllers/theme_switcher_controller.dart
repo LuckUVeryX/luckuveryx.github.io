@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'theme_switcher_controller.g.dart';
@@ -15,6 +16,6 @@ class ThemeSwitcherController extends _$ThemeSwitcherController {
       Brightness.light => ThemeMode.light,
       Brightness.dark => ThemeMode.dark,
     };
-    return;
+    ref.capture(AnalyticsEvent.themeModeToggled(state));
   }
 }

@@ -1,3 +1,4 @@
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/info/info.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -8,7 +9,8 @@ InfoLink resume(ResumeRef ref) {
   return InfoLink(
     label: 'Resume',
     url: Uri.parse(
-      'https://github.com/LuckUVeryX/luckuveryx.github.io/blob/main/assets/ryan_yip_resume.pdf',
+      'https://raw.githubusercontent.com/LuckUVeryX/luckuveryx.github.io/main/assets/ryan_yip_resume.pdf',
     ),
+    event: AnalyticsEvent.resumeViewed(),
   );
 }

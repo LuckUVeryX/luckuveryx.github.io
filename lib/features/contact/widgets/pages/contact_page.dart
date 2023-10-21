@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/info/info.dart';
 
 class ContactPage extends StatelessWidget {
@@ -17,6 +18,7 @@ class ContactPage extends StatelessWidget {
               scheme: 'mailto',
               path: 'luckuveryx@icloud.com',
             ),
+            event: AnalyticsEvent.contactMeTapped(),
           ),
         ),
       ),

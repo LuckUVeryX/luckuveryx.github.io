@@ -1,3 +1,4 @@
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/info/info.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -9,10 +10,12 @@ List<InfoLink> externalInfoLinks(ExternalInfoLinksRef ref) {
     InfoLink(
       label: 'GitHub',
       url: Uri.parse('https://github.com/LuckUVeryX'),
+      event: AnalyticsEvent.githubViewed(),
     ),
     InfoLink(
       label: 'LinkedIn',
       url: Uri.parse('https://www.linkedin.com/in/ryan-yip-luckuveryx/'),
+      event: AnalyticsEvent.linkedInViewed(),
     ),
   ];
 }
