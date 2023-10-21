@@ -14,15 +14,47 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: subosito/flutter-action@v2
-      - run: flutter pub run build_runner build --delete-conflicting-outputs
-      - run: flutter config --enable-web
-      - run: flutter build web --release --target lib/main_production.dart
-      - run: git config user.name github-actions
-      - run: git config user.email github-actions@github.com
-      - run: git --work-tree build/web add --all
-      - run: git add .well-known --all
-      - run: git add _config.yml
-      - run: git commit -m "Automatic deployment by github-actions"
-      - run: git push origin HEAD:gh-pages --force
+      - name: 📚 Git Checkout
+        uses: actions/checkout@v4
+
+      - name: 🤫 Set API Keys
+        run: echo $API_KEYS_JSON | base64 -d > api-keys.json
+        env:
+          API_KEYS_JSON: ${{ secrets.API_KEYS_JSON }}
+
+      - name: 🐦 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          cache-key: flutter-:os:-:channel:-:version:-:arch:-:hash:-${{ hashFiles('**/pubspec.lock') }}
+
+      - name: 📦 Install Dependencies
+        run: |
+          flutter pub get
+
+      - name: ⚙️ Run Code Generation
+        run: |
+          flutter pub run build_runner build --delete-conflicting-outputs
+
+      - name: 🌏 Enable Web
+        run: |
+          flutter config --enable-web
+
+      - name: 🛠️ Build Web
+        run: flutter build web --release --target lib/main_production.dart --dart-define-from-file api-keys.json
+
+      - name: 🤖 Configure Github Actions
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+      - name: 🎄 Extract Web Build
+        run: |
+          git --work-tree build/web add --all
+          git add .well-known --all
+          git add _config.yml
+
+      - name: 🚀 Push to gh-pages
+        run: |
+          git commit -m "Automatic deployment by github-actions"
+          git push origin HEAD:gh-pages --force

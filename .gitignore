@@ -93,6 +93,9 @@ packages/**/pubspec.lock
 *.freezed.dart
 *.g.dart
 
+# Secrets
+api-keys.json
+
 # Symbolication related
 app.*.symbols
 

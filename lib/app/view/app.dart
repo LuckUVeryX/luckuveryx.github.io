@@ -28,6 +28,7 @@ class App extends HookConsumerWidget {
       ),
       [notifier],
     );
+    useRouterObserver(router);
 
     return AnimatedFadeIn(
       child: MaterialApp.router(
@@ -38,7 +39,7 @@ class App extends HookConsumerWidget {
         debugShowCheckedModeBanner: false,
         supportedLocales: AppLocalizations.supportedLocales,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
-        scrollBehavior: const NoThumbScrollBehavior().copyWith(
+        scrollBehavior: const _NoThumbScrollBehavior().copyWith(
           scrollbars: false,
         ),
       ),
@@ -46,8 +47,8 @@ class App extends HookConsumerWidget {
   }
 }
 
-class NoThumbScrollBehavior extends ScrollBehavior {
-  const NoThumbScrollBehavior();
+class _NoThumbScrollBehavior extends ScrollBehavior {
+  const _NoThumbScrollBehavior();
   @override
   Set<PointerDeviceKind> get dragDevices => {
         PointerDeviceKind.touch,
