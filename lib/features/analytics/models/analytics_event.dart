@@ -29,14 +29,14 @@ class AnalyticsEvent with _$AnalyticsEvent {
   factory AnalyticsEvent.projectLinkTapped(Uri uri) {
     return AnalyticsEvent(
       eventName: 'project_link_tapped',
-      properties: {'link': uri},
+      properties: {'link': uri.toString()},
     );
   }
 
   factory AnalyticsEvent.projectSubLinkTapped(Uri uri) {
     return AnalyticsEvent(
       eventName: 'project_sublink_tapped',
-      properties: {'link': uri},
+      properties: {'link': uri.toString()},
     );
   }
 
