@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'analytics_event.freezed.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class AnalyticsEvent with _$AnalyticsEvent {
   const factory AnalyticsEvent({
     required String eventName,
