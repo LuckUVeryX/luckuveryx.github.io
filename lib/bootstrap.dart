@@ -7,16 +7,17 @@ import 'dart:js' as js;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:luckuveryx/app/api/api.dart';
 
 Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  if (kIsWeb) {
-    const postHogKey = String.fromEnvironment('POST_HOG_API_KEY');
-    js.context['POST_HOG_API_KEY'] = postHogKey;
-    html.document.dispatchEvent(html.CustomEvent('keys_loaded'));
-  }
-
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
+
+  if (kIsWeb) {
+    js.context['POST_HOG_API_KEY'] = ApiKeys.postHog;
+    html.document.dispatchEvent(html.CustomEvent('keys_loaded'));
+  }
+
   runApp(await builder());
 }
