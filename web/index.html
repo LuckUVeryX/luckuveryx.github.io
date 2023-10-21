@@ -204,7 +204,10 @@
             }),
             (e.__SV = 1));
         })(document, window.posthog || []);
-        posthog.init(apiKey, { api_host: "https://app.posthog.com" });
+        posthog.init(apiKey, {
+          api_host: "https://app.posthog.com",
+          autocapture: false,
+        });
       }
 
       window.addEventListener(
