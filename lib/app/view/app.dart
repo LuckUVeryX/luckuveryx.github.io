@@ -8,6 +8,7 @@ import 'package:luckuveryx/app/theme/theme.dart';
 import 'package:luckuveryx/features/theme_switcher/theme_switcher.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
+import 'package:posthog_flutter/posthog_flutter.dart';
 
 class App extends HookConsumerWidget {
   const App({super.key});
@@ -25,6 +26,7 @@ class App extends HookConsumerWidget {
         debugLogDiagnostics: true,
         refreshListenable: notifier,
         redirect: (context, state) => null,
+        observers: [PosthogObserver()],
       ),
       [notifier],
     );
