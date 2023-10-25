@@ -11,23 +11,17 @@ LuckUVeryX
 
 ## Getting Started 🚀
 
-This project contains 3 flavors:
-
-- development
-- staging
-- production
-
-To run the desired flavor either use the launch configuration in VSCode/Android Studio or use the following commands:
+To run the desired flutter mode either use the launch configuration in VSCode/Android Studio or use the following commands:
 
 ```sh
-# Development
-$ flutter run --flavor development --target lib/main_development.dart
+# Debug
+$ flutter run
 
-# Staging
-$ flutter run --flavor staging --target lib/main_staging.dart
+# Profile
+$ flutter run --profile
 
-# Production
-$ flutter run --flavor production --target lib/main_production.dart
+# Release
+$ flutter run --release
 ```
 
 _\*Luckuveryx works on Web._
