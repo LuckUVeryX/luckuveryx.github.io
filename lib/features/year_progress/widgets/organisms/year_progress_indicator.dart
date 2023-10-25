@@ -51,29 +51,31 @@ class YearProgressIndicator extends HookWidget {
         '${(yearProg * 100).toStringAsPrecision(12)}%'.split('');
     final remainingText = remaining.inDHMS;
 
-    return Tooltip(
-      message: 'Year Progress',
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(28),
-                  child: LinearProgressIndicator(
-                    color: color,
-                    value: yearProg,
-                    backgroundColor: color?.withOpacity(0.3),
+    return AnimatedFadeIn(
+      child: Tooltip(
+        message: 'Year Progress',
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(28),
+                    child: LinearProgressIndicator(
+                      color: color,
+                      value: yearProg,
+                      backgroundColor: color?.withOpacity(0.3),
+                    ),
                   ),
                 ),
-              ),
-              Spacing.sp8,
-              for (final char in yearProgText)
-                YearProgressMonospaceText(char: char),
-            ],
-          ),
-          YearProgressRemainingCountdown(remainingText: remainingText),
-        ],
+                Spacing.sp8,
+                for (final char in yearProgText)
+                  YearProgressMonospaceText(char: char),
+              ],
+            ),
+            YearProgressRemainingCountdown(remainingText: remainingText),
+          ],
+        ),
       ),
     );
   }
