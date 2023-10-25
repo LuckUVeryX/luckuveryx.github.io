@@ -69,7 +69,7 @@ class RootContainer extends HookWidget {
           color: context.colorScheme.onBackground,
         ),
       ),
-      margin: const EdgeInsets.all(28).copyWith(left: 0),
+      margin: const EdgeInsets.all(28).copyWith(left: 0, bottom: 0),
       child: Stack(
         children: [
           for (final (height, value, color) in waves)
