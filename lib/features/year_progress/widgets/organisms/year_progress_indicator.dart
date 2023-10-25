@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:luckuveryx/features/year_progress/widgets/atoms/year_progress_monospace_text.dart';
 import 'package:luckuveryx/features/year_progress/widgets/molecules/year_progress_remaining_countdown.dart';
+import 'package:luckuveryx/l10n/l10n.dart';
 import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
@@ -53,7 +54,7 @@ class YearProgressIndicator extends HookWidget {
 
     return AnimatedFadeIn(
       child: Tooltip(
-        message: 'Year Progress',
+        message: context.l10n.yearProgressToolTip,
         child: Column(
           children: [
             Row(
