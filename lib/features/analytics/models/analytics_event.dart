@@ -51,5 +51,19 @@ class AnalyticsEvent with _$AnalyticsEvent {
     );
   }
 
+  factory AnalyticsEvent.speedSliderValue(double speed) {
+    return AnalyticsEvent(
+      eventName: 'speed_slider_value',
+      properties: {'speed': speed},
+    );
+  }
+
+  factory AnalyticsEvent.sizeSliderValue(double size) {
+    return AnalyticsEvent(
+      eventName: 'size_slider_value',
+      properties: {'size': size},
+    );
+  }
+
   const AnalyticsEvent._();
 }

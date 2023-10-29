@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/features/root/root.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
@@ -71,6 +72,9 @@ class ScreenSaverPage extends HookConsumerWidget {
                     value: speed.value,
                     max: 24,
                     onChanged: (value) => speed.value = value,
+                    onChangeEnd: (value) {
+                      ref.capture(AnalyticsEvent.speedSliderValue(value));
+                    },
                   ),
                 ),
                 Spacing.sp8,
@@ -96,6 +100,9 @@ class ScreenSaverPage extends HookConsumerWidget {
                     min: 2,
                     max: 128,
                     onChanged: (value) => size.value = value,
+                    onChangeEnd: (value) {
+                      ref.capture(AnalyticsEvent.sizeSliderValue(value));
+                    },
                   ),
                 ),
                 Spacing.sp24,
