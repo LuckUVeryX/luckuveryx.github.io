@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
+import 'package:luckuveryx/l10n/l10n.dart';
 
 class ScreenSaver extends HookConsumerWidget {
   const ScreenSaver({
@@ -40,9 +41,16 @@ class ScreenSaver extends HookConsumerWidget {
 
     useEffect(
       () {
+        final (width, height) = (constraints.maxWidth, constraints.maxHeight);
+        final corners = [
+          (0, 0),
+          (0, width - size),
+          (height - size, 0),
+          (height - size, width - size),
+        ];
+
         final ticker = tickerProvider.createTicker((elapsed) {
           final (posX, posY) = pos.value;
-          final (width, height) = (constraints.maxWidth, constraints.maxHeight);
 
           var (x, y) = (posX + dx * speed, posY + dy * speed);
 
@@ -70,7 +78,18 @@ class ScreenSaver extends HookConsumerWidget {
             color.value = Color((Random().nextDouble() * 0xFFFFFF).toInt())
                 .withOpacity(1);
           }
+
           pos.value = (x, y);
+
+          // Corner detection
+          if (corners.contains(pos.value)) {
+            showDialog<void>(
+              context: context,
+              builder: (context) => AlertDialog.adaptive(
+                title: Text(context.l10n.screenSaverCorner),
+              ),
+            );
+          }
         })
           ..start();
         return ticker.dispose;
