@@ -7,5 +7,8 @@
     "info": "Info",
     "contact": "Contact",
     "homeContent": "I've cultivated skills with a commitment to technology-driven design. My work embodies this synergy, where I breathe life into design concepts through mobile applications. Fueled by a thirst for innovation, I thrive at the crossroads of aesthetics and technology, continuously pushing the boundaries of what's achievable.",
-    "yearProgressToolTip": "Year Progress"
+    "yearProgressToolTip": "Year Progress",
+    "screenSaver": "ScreenSaver",
+    "screenSaverSize": "Size",
+    "screenSaverSpeed": "Speed"
 }

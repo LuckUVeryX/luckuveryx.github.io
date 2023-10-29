@@ -53,6 +53,11 @@ class RootHeader extends StatelessWidget {
             label: context.l10n.contact,
             onPressed: () => const ContactRoute().go(context),
           ),
+          RouteButtonBuilder(
+            path: ScreenSaverRoute.path,
+            label: context.l10n.screenSaver,
+            onPressed: () => const ScreenSaverRoute().go(context),
+          ),
         ],
       ),
     );
