@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
-import 'package:luckuveryx/utils/theme_extensions.dart';
 
 class ScreenSaver extends HookConsumerWidget {
   const ScreenSaver({
@@ -20,10 +19,13 @@ class ScreenSaver extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final color = useState(
+      Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1),
+    );
     final pos = useState<(double x, double y)>(
       (
-        Random().nextDouble() * (constraints.maxHeight - size),
-        Random().nextDouble() * (constraints.maxWidth - size)
+        Random().nextDouble() * (constraints.maxWidth - size),
+        Random().nextDouble() * (constraints.maxHeight - size)
       ),
     );
     final dir = useState<(int dx, int dy)>(
@@ -46,7 +48,11 @@ class ScreenSaver extends HookConsumerWidget {
           if (posX + size > width) dx = -1;
           if (posY < 0) dy = 1;
           if (posY + size > height) dy = -1;
-          dir.value = (dx, dy);
+          if (dir.value != (dx, dy)) {
+            dir.value = (dx, dy);
+            color.value = Color((Random().nextDouble() * 0xFFFFFF).toInt())
+                .withOpacity(1);
+          }
 
           pos.value = (posX + dx * speed, posY + dy * speed);
         })
@@ -62,7 +68,7 @@ class ScreenSaver extends HookConsumerWidget {
       child: Container(
         height: size,
         width: size,
-        color: context.colorScheme.primary,
+        color: color.value,
       ),
     );
   }
