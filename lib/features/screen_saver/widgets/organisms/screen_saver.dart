@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
 
 class ScreenSaver extends HookConsumerWidget {
@@ -83,6 +84,7 @@ class ScreenSaver extends HookConsumerWidget {
             ref
                 .read(screenSaverCornerControllerProvider.notifier)
                 .detectCorner();
+            ref.capture(AnalyticsEvent.cornerDetected());
           }
         })
           ..start();

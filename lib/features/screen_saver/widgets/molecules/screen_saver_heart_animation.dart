@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
 import 'package:luckuveryx/gen/assets.gen.dart';
 
@@ -28,6 +29,7 @@ class ScreenSaverHeartAnimation extends HookConsumerWidget {
           timer.value?.cancel();
           timer.value = null;
           ref.read(screenSaverCornerControllerProvider.notifier).detectCorner();
+          ref.capture(AnalyticsEvent.cornerAnimationManuallyTriggered());
         }
       },
       child: const _ScreenSaverHeartAnimation(),

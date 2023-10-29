@@ -65,5 +65,15 @@ class AnalyticsEvent with _$AnalyticsEvent {
     );
   }
 
+  factory AnalyticsEvent.cornerAnimationManuallyTriggered() {
+    return const AnalyticsEvent(
+      eventName: 'corner_animation_manually_triggered',
+    );
+  }
+
+  factory AnalyticsEvent.cornerDetected() {
+    return const AnalyticsEvent(eventName: 'corner_detected');
+  }
+
   const AnalyticsEvent._();
 }
