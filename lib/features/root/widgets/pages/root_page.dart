@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/features/root/root.dart';
-import 'package:luckuveryx/features/theme_switcher/theme_switcher.dart';
 import 'package:luckuveryx/features/year_progress/year_progress.dart';
-import 'package:luckuveryx/widgets/widgets.dart';
 
 class RootPage extends HookConsumerWidget {
   const RootPage({
@@ -18,49 +16,34 @@ class RootPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(
-          switch (ResponsiveLayout.of(context)) {
-            ResponsiveLayout.md ||
-            ResponsiveLayout.xs ||
-            ResponsiveLayout.sm =>
-              0,
-            _ => 24,
-          },
-        ),
+        padding: switch (ResponsiveLayout.of(context)) {
+          // Accounts for ThemeButton width of 20.
+          ResponsiveLayout.md ||
+          ResponsiveLayout.xs ||
+          ResponsiveLayout.sm =>
+            const EdgeInsets.all(20).copyWith(left: 0),
+          _ => const EdgeInsets.all(28).copyWith(left: 8),
+        },
         child: Column(
           children: [
             Expanded(
-              child: Row(
-                children: [
-                  const Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
+              child: RootContainer(
+                child: WavesBackground(
+                  child: Stack(
                     children: [
-                      Spacing.sp28,
-                      BrightnessButton(brightness: Brightness.dark),
-                      BrightnessButton(brightness: Brightness.light),
-                      Spacing.sp20,
+                      navigator,
+                      const Align(
+                        alignment: Alignment.topLeft,
+                        child: RootHeader(),
+                      ),
                     ],
                   ),
-                  Expanded(
-                    child: RootContainer(
-                      child: Stack(
-                        children: [
-                          navigator,
-                          const Positioned(
-                            left: 0,
-                            top: 0,
-                            child: RootHeader(),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(28).copyWith(top: 0),
-              child: const YearProgressIndicator(),
+            const Padding(
+              padding: EdgeInsets.only(left: 28),
+              child: YearProgressIndicator(),
             ),
           ],
         ),

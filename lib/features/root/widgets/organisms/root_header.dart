@@ -27,9 +27,14 @@ class RootHeader extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: Text(
-              'LuckUVeryx',
-              style: context.titleStyle,
+            child: HoverButton(
+              onPressed: () => const ScreenSaverRoute().go(context),
+              builder: (details) {
+                return Text(
+                  'LuckUVeryx',
+                  style: context.titleStyle?.copyWith(color: details.color),
+                );
+              },
             ),
           ),
           Spacing.sp24,
