@@ -46,18 +46,29 @@ class ScreenSaver extends HookConsumerWidget {
 
           var (x, y) = (posX + dx * speed, posY + dy * speed);
 
-          // Check if within constraints
-          if (x < 0) dx = 1;
-          if (x + size > width) dx = -1;
-          if (y < 0) dy = 1;
-          if (y + size > height) dy = -1;
+          // Clamp positions
+          if (x < 0) {
+            x = 0;
+            dx = 1;
+          }
+          if (x + size > width) {
+            x = width - size;
+            dx = -1;
+          }
+          if (y < 0) {
+            y = 0;
+            dy = 1;
+          }
+          if (y + size > height) {
+            y = height - size;
+            dy = -1;
+          }
 
           // Bounce
           if (dir.value != (dx, dy)) {
             dir.value = (dx, dy);
             color.value = Color((Random().nextDouble() * 0xFFFFFF).toInt())
                 .withOpacity(1);
-            (x, y) = (posX + dx * speed, posY + dy * speed);
           }
           pos.value = (x, y);
         })
