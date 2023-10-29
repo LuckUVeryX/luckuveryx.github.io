@@ -41,20 +41,25 @@ class ScreenSaver extends HookConsumerWidget {
     useEffect(
       () {
         final ticker = tickerProvider.createTicker((elapsed) {
-          // Tick
           final (posX, posY) = pos.value;
           final (width, height) = (constraints.maxWidth, constraints.maxHeight);
-          if (posX < 0) dx = 1;
-          if (posX + size > width) dx = -1;
-          if (posY < 0) dy = 1;
-          if (posY + size > height) dy = -1;
+
+          var (x, y) = (posX + dx * speed, posY + dy * speed);
+
+          // Check if within constraints
+          if (x < 0) dx = 1;
+          if (x + size > width) dx = -1;
+          if (y < 0) dy = 1;
+          if (y + size > height) dy = -1;
+
+          // Bounce
           if (dir.value != (dx, dy)) {
             dir.value = (dx, dy);
             color.value = Color((Random().nextDouble() * 0xFFFFFF).toInt())
                 .withOpacity(1);
+            (x, y) = (posX + dx * speed, posY + dy * speed);
           }
-
-          pos.value = (posX + dx * speed, posY + dy * speed);
+          pos.value = (x, y);
         })
           ..start();
         return ticker.dispose;
