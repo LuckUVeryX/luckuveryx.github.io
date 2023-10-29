@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 import 'package:luckuveryx/features/root/root.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
 import 'package:luckuveryx/l10n/l10n.dart';
-import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class ScreenSaverPage extends HookConsumerWidget {
   const ScreenSaverPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final size = useState<double>(48);
-    final speed = useState<double>(2);
+    final (:speed, :size) = ref.watch(screenSaverSettingsControllerProvider);
 
     return Scaffold(
       body: Column(
@@ -36,8 +33,12 @@ class ScreenSaverPage extends HookConsumerWidget {
                       children: [
                         ScreenSaver(
                           constraints: constraints,
-                          size: size.value,
-                          speed: speed.value,
+                        ),
+                        const Positioned.fill(
+                          child: ScreenSaverHeartAnimation(),
+                        ),
+                        const Center(
+                          child: ScreenSaverCornerAnimation(),
                         ),
                       ],
                     );
@@ -48,67 +49,35 @@ class ScreenSaverPage extends HookConsumerWidget {
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 8, 4, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Row(
-                    children: [
-                      Text(context.l10n.screenSaverSpeed),
-                      const Spacer(),
-                      Text(
-                        speed.value.toStringAsFixed(1),
-                        textAlign: TextAlign.right,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                  width: double.infinity,
-                  child: Slider(
-                    activeColor: context.colorScheme.tertiary,
-                    value: speed.value,
-                    max: 24,
-                    onChanged: (value) => speed.value = value,
-                    onChangeEnd: (value) {
-                      ref.capture(AnalyticsEvent.speedSliderValue(value));
-                    },
-                  ),
-                ),
-                Spacing.sp8,
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Row(
-                    children: [
-                      Text(context.l10n.screenSaverSize),
-                      const Spacer(),
-                      Text(
-                        size.value.toStringAsFixed(1),
-                        textAlign: TextAlign.right,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                  width: double.infinity,
-                  child: Slider(
-                    activeColor: context.colorScheme.tertiaryContainer,
-                    value: size.value,
-                    min: 2,
-                    max: 128,
-                    onChanged: (value) => size.value = value,
-                    onChangeEnd: (value) {
-                      ref.capture(AnalyticsEvent.sizeSliderValue(value));
-                    },
-                  ),
-                ),
-                Spacing.sp24,
-              ],
+            child: ScreenSaverSetttingsSlider(
+              label: context.l10n.screenSaverSpeed,
+              value: speed,
+              min: 0,
+              max: 24,
+              onChanged: ref
+                  .read(screenSaverSettingsControllerProvider.notifier)
+                  .onSpeedChanged,
+              onChangeEnd: (value) {
+                ref.capture(AnalyticsEvent.speedSliderValue(speed));
+              },
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 8, 4, 0),
+            child: ScreenSaverSetttingsSlider(
+              label: context.l10n.screenSaverSize,
+              value: size,
+              min: 4,
+              max: 128,
+              onChanged: ref
+                  .read(screenSaverSettingsControllerProvider.notifier)
+                  .onSizeChanged,
+              onChangeEnd: (value) {
+                ref.capture(AnalyticsEvent.sizeSliderValue(size));
+              },
+            ),
+          ),
+          Spacing.sp24,
         ],
       ),
     );

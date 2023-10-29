@@ -3,23 +3,21 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
-import 'package:luckuveryx/l10n/l10n.dart';
 
 class ScreenSaver extends HookConsumerWidget {
   const ScreenSaver({
-    required this.size,
-    required this.speed,
     required this.constraints,
     super.key,
   });
 
-  final double size;
-  final double speed;
   final BoxConstraints constraints;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final (:speed, :size) = ref.watch(screenSaverSettingsControllerProvider);
+
     final color = useState(
       Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1),
     );
@@ -83,12 +81,10 @@ class ScreenSaver extends HookConsumerWidget {
 
           // Corner detection
           if (corners.contains(pos.value)) {
-            showDialog<void>(
-              context: context,
-              builder: (context) => AlertDialog.adaptive(
-                title: Text(context.l10n.screenSaverCorner),
-              ),
-            );
+            ref
+                .read(screenSaverCornerControllerProvider.notifier)
+                .detectCorner();
+            ref.capture(AnalyticsEvent.cornerDetected());
           }
         })
           ..start();
