@@ -27,14 +27,9 @@ class RootHeader extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: HoverButton(
-              onPressed: () => const ScreenSaverRoute().go(context),
-              builder: (details) {
-                return Text(
-                  'LuckUVeryx',
-                  style: context.titleStyle?.copyWith(color: details.color),
-                );
-              },
+            child: Text(
+              'LuckUVeryx',
+              style: context.titleStyle,
             ),
           ),
           Spacing.sp24,
@@ -57,6 +52,11 @@ class RootHeader extends StatelessWidget {
             path: ContactRoute.path,
             label: context.l10n.contact,
             onPressed: () => const ContactRoute().go(context),
+          ),
+          RouteButtonBuilder(
+            path: ScreenSaverRoute.path,
+            label: context.l10n.screenSaver,
+            onPressed: () => const ScreenSaverRoute().go(context),
           ),
         ],
       ),
