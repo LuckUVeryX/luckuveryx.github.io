@@ -55,7 +55,7 @@ class RootHeader extends StatelessWidget {
           ),
           RouteButtonBuilder(
             path: ScreenSaverRoute.path,
-            label: context.l10n.screenSaver,
+            label: context.l10n.animation,
             onPressed: () => const ScreenSaverRoute().go(context),
           ),
         ],
