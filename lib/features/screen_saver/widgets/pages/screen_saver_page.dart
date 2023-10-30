@@ -37,9 +37,6 @@ class ScreenSaverPage extends HookConsumerWidget {
                         const Positioned.fill(
                           child: ScreenSaverHeartAnimation(),
                         ),
-                        const Center(
-                          child: ScreenSaverCornerAnimation(),
-                        ),
                       ],
                     );
                   },
