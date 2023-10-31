@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:luckuveryx/gen/fonts.gen.dart';
 
 class AppTheme {
   const AppTheme._();
@@ -9,6 +9,7 @@ class AppTheme {
   static ThemeData light() {
     final theme = ThemeData(
       useMaterial3: true,
+      fontFamily: FontFamily.geist,
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
         background: white,
@@ -17,7 +18,6 @@ class AppTheme {
     );
 
     return theme.copyWith(
-      textTheme: GoogleFonts.ralewayTextTheme(ThemeData.light().textTheme),
       pageTransitionsTheme: PageTransitionsTheme(
         builders: {
           for (final platform in TargetPlatform.values)
@@ -30,6 +30,7 @@ class AppTheme {
   static ThemeData dark() {
     final theme = ThemeData(
       useMaterial3: true,
+      fontFamily: FontFamily.geist,
       brightness: Brightness.dark,
       colorScheme: const ColorScheme.dark(
         onBackground: white,
@@ -37,7 +38,6 @@ class AppTheme {
     );
 
     return theme.copyWith(
-      textTheme: GoogleFonts.ralewayTextTheme(ThemeData.dark().textTheme),
       pageTransitionsTheme: PageTransitionsTheme(
         builders: {
           for (final platform in TargetPlatform.values)

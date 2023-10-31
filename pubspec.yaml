@@ -16,7 +16,6 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   freezed_annotation: ^2.4.1
   go_router: ^12.0.0
-  google_fonts: ^6.1.0
   hooks_riverpod: ^2.4.4
   intl: ^0.18.0
   lottie: ^2.7.0
@@ -41,6 +40,10 @@ dev_dependencies:
 flutter:
   assets:
     - assets/lottie/
+  fonts:
+    - family: 'Geist'
+      fonts:
+        - asset: assets/fonts/GeistVF.ttf
   generate: true
   uses-material-design: true
 
