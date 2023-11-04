@@ -10,6 +10,6 @@
 class FontFamily {
   FontFamily._();
 
-  /// Font family: Geist
-  static const String geist = 'Geist';
+  /// Font family: GeistMono
+  static const String geistMono = 'GeistMono';
 }

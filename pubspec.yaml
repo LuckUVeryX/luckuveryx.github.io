@@ -41,9 +41,26 @@ flutter:
   assets:
     - assets/lottie/
   fonts:
-    - family: 'Geist'
+    - family: GeistMono
       fonts:
-        - asset: assets/fonts/GeistVF.ttf
+        - asset: assets/fonts/GeistMono-UltraLight.otf
+          weight: 100
+        - asset: assets/fonts/GeistMono-Light.otf
+          weight: 200
+        - asset: assets/fonts/GeistMono-Regular.otf
+          weight: 300
+        - asset: assets/fonts/GeistMono-Medium.otf
+          weight: 400
+        - asset: assets/fonts/GeistMono-SemiBold.otf
+          weight: 500
+        - asset: assets/fonts/GeistMono-Bold.otf
+          weight: 600
+        - asset: assets/fonts/GeistMono-Black.otf
+          weight: 700
+        - asset: assets/fonts/GeistMono-UltraBlack.otf
+          weight: 800
+        - asset: assets/fonts/GeistMono-UltraBlack.otf
+          weight: 900
   generate: true
   uses-material-design: true
 

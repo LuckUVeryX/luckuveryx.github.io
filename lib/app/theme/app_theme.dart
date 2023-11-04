@@ -9,7 +9,7 @@ class AppTheme {
   static ThemeData light() {
     final theme = ThemeData(
       useMaterial3: true,
-      fontFamily: FontFamily.geist,
+      fontFamily: FontFamily.geistMono,
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
         background: white,
@@ -30,7 +30,7 @@ class AppTheme {
   static ThemeData dark() {
     final theme = ThemeData(
       useMaterial3: true,
-      fontFamily: FontFamily.geist,
+      fontFamily: FontFamily.geistMono,
       brightness: Brightness.dark,
       colorScheme: const ColorScheme.dark(
         onBackground: white,
