@@ -7,7 +7,7 @@ part 'analytics_event.freezed.dart';
 class AnalyticsEvent with _$AnalyticsEvent {
   const factory AnalyticsEvent({
     required String eventName,
-    Map<String, dynamic>? properties,
+    Map<String, Object>? properties,
   }) = _AnalyticsEvent;
 
   factory AnalyticsEvent.contactMeTapped() {
