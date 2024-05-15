@@ -18,7 +18,7 @@ HoverDetails _useHover(bool hover) {
 
   final color = useAnimation(
     ColorTween(
-      begin: useContext().colorScheme.onBackground,
+      begin: useContext().colorScheme.onSurface,
       end: useContext().theme.disabledColor,
     ).chain(CurveTween(curve: Curves.easeOut)).animate(controller),
   );

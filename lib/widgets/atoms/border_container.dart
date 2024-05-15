@@ -13,7 +13,7 @@ class BorderContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: context.colorScheme.onBackground,
+          color: context.colorScheme.onSurface,
         ),
       ),
       child: child,

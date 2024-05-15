@@ -12,8 +12,8 @@ class AppTheme {
       fontFamily: FontFamily.geistMono,
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
-        background: white,
-        onBackground: black,
+        surface: white,
+        onSurface: black,
       ),
     );
 
@@ -33,7 +33,7 @@ class AppTheme {
       fontFamily: FontFamily.geistMono,
       brightness: Brightness.dark,
       colorScheme: const ColorScheme.dark(
-        onBackground: white,
+        onSurface: white,
       ),
     );
 
