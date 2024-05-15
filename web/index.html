@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!--
+
+<head>
+  <!--
       If you are serving your web app in a path other than the root, change the
       href value below to reflect the base path you are serving from.
 
@@ -14,199 +15,134 @@
       This is a placeholder for base href that will be replaced by the value of
       the `--base-href` argument provided to `flutter build`.
     -->
-    <base href="$FLUTTER_BASE_HREF" />
+  <base href="$FLUTTER_BASE_HREF" />
 
-    <meta charset="UTF-8" />
-    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta name="description" content="LuckUVeryX" />
+  <meta charset="UTF-8" />
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+  <meta name="description" content="LuckUVeryX" />
 
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="#FCFCFD"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#121212"
-    />
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FCFCFD" />
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
 
-    <!-- iOS meta tags & icons -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Luckuveryx" />
-    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-title" content="Luckuveryx" />
+  <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
 
-    <title>LuckUVeryX</title>
-    <link rel="manifest" href="manifest.json" />
-  </head>
+  <title>LuckUVeryX</title>
+  <link rel="manifest" href="manifest.json" />
+</head>
 
-  <body>
-    <style>
-      /* Light mode */
-      @media (prefers-color-scheme: light) {
-        body {
-          background-color: #eeeeee;
-        }
-
-        .loader {
-          background-color: rgba(51, 51, 51, 0.1);
-        }
-      }
-
-      /* Dark mode */
-      @media (prefers-color-scheme: dark) {
-        body {
-          background-color: #121212;
-        }
-
-        .loader {
-          background-color: rgba(51, 51, 51, 1);
-        }
-      }
-
+<body>
+  <style>
+    /* Light mode */
+    @media (prefers-color-scheme: light) {
       body {
-        height: 100vh;
-        width: 100vw;
-        margin: 0px;
+        background-color: #eeeeee;
       }
 
-      .main-content {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.4s ease-out;
-      }
-
-      /* https://cssloaders.github.io */
       .loader {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        position: relative;
-        box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
-          0 5px 12px rgba(0, 0, 0, 0.15);
-        overflow: hidden;
+        background-color: rgba(51, 51, 51, 0.1);
       }
-      .loader:before,
-      .loader:after {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 45%;
-        top: -40%;
-        background-color: #fff;
-        animation: wave 5s linear infinite;
-      }
-      .loader:before {
-        border-radius: 30%;
-        background: rgba(255, 255, 255, 0.4);
-        animation: wave 5s linear infinite;
-      }
-      @keyframes wave {
-        0% {
-          transform: rotate(0);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
-    <script>
-      {{flutter_js}}
-      {{flutter_build_config}}
+    }
 
-      function delay(time) {
-        return new Promise((resolve) => setTimeout(resolve, time));
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
       }
 
-      _flutter.loader.load({
-        serviceWorkerSettings: {
-          serviceWorkerVersion: {{flutter_service_worker_version}},
-        },
-        onEntrypointLoaded: async function (engineInitializer) {
-          var loaderContent = document.querySelector("#loader-content");
-          const appRunner = await engineInitializer.initializeEngine();
-          loaderContent.style.opacity = "0";
-          await delay(100);
-          await appRunner.runApp();
-        },
-      });
+      .loader {
+        background-color: rgba(51, 51, 51, 1);
+      }
+    }
 
-      function postHog(apiKey) {
-        !(function (t, e) {
-          var o, n, p, r;
-          e.__SV ||
-            ((window.posthog = e),
-            (e._i = []),
-            (e.init = function (i, s, a) {
-              function g(t, e) {
-                var o = e.split(".");
-                2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                  (t[e] = function () {
-                    t.push(
-                      [e].concat(Array.prototype.slice.call(arguments, 0))
-                    );
-                  });
-              }
-              ((p = t.createElement("script")).type = "text/javascript"),
-                (p.async = !0),
-                (p.src = s.api_host + "/static/array.js"),
-                (r =
-                  t.getElementsByTagName("script")[0]).parentNode.insertBefore(
-                  p,
-                  r
-                );
-              var u = e;
-              for (
-                void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                  u.people = u.people || [],
-                  u.toString = function (t) {
-                    var e = "posthog";
-                    return (
-                      "posthog" !== a && (e += "." + a),
-                      t || (e += " (stub)"),
-                      e
-                    );
-                  },
-                  u.people.toString = function () {
-                    return u.toString(1) + ".people (stub)";
-                  },
-                  o =
-                    "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(
-                      " "
-                    ),
-                  n = 0;
-                n < o.length;
-                n++
-              )
-                g(u, o[n]);
-              e._i.push([i, s, a]);
-            }),
-            (e.__SV = 1));
-        })(document, window.posthog || []);
-        posthog.init(apiKey, {
-          api_host: "https://app.posthog.com",
-          autocapture: false,
-        });
+    body {
+      height: 100vh;
+      width: 100vw;
+      margin: 0px;
+    }
+
+    .main-content {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease-out;
+    }
+
+    /* https://cssloaders.github.io */
+    .loader {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 0 0 30px 4px rgba(0, 0, 0, 0.5) inset,
+        0 5px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .loader:before,
+    .loader:after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 45%;
+      top: -40%;
+      background-color: #fff;
+      animation: wave 5s linear infinite;
+    }
+
+    .loader:before {
+      border-radius: 30%;
+      background: rgba(255, 255, 255, 0.4);
+      animation: wave 5s linear infinite;
+    }
+
+    @keyframes wave {
+      0% {
+        transform: rotate(0);
       }
 
-      window.addEventListener(
-        "keys_loaded",
-        function (ev) {
-          postHog(window.POST_HOG_API_KEY);
-        },
-        { once: true }
-      );
-    </script>
-    <div class="main-content" id="loader-content">
-      <span class="loader"></span>
-    </div>
-  </body>
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script>
+    {{flutter_js}}
+    {{flutter_build_config}}
+
+    function delay(time) {
+      return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
+    _flutter.loader.load({
+      serviceWorkerSettings: {
+        serviceWorkerVersion: {{flutter_service_worker_version}},
+      },
+      onEntrypointLoaded: async function (engineInitializer) {
+        var loaderContent = document.querySelector("#loader-content");
+        const appRunner = await engineInitializer.initializeEngine();
+        loaderContent.style.opacity = "0";
+        await delay(100);
+        await appRunner.runApp();
+      },
+    });
+  </script>
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_WuuZgCDPJRJCGXCwLKq24At2ys9IzYvnevAmkxIuqCA', {api_host: "https://us.i.posthog.com", autocapture: false})
+  </script>
+  <div class="main-content" id="loader-content">
+    <span class="loader"></span>
+  </div>
+</body>
+
 </html>
