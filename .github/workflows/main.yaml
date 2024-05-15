@@ -15,5 +15,6 @@ jobs:
     with:
       flutter_channel: stable
       min_coverage: 0
-      setup: "flutter pub run build_runner build --delete-conflicting-outputs"
-
+      setup: |
+        flutter pub run build_runner build --delete-conflicting-outputs
+        flutter pub get
