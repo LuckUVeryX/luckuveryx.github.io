@@ -42,7 +42,7 @@ jobs:
           flutter config --enable-web
 
       - name: 🛠️ Build Web
-        run: flutter build web --release -t lib/main.dart --dart-define-from-file api-keys.json --wasm
+        run: flutter build web --release -t lib/main.dart --dart-define-from-file api-keys.json
 
       - name: 🤖 Configure Github Actions
         run: |
