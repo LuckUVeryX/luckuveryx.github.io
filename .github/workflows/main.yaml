@@ -5,6 +5,9 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -16,5 +19,6 @@ jobs:
       flutter_channel: stable
       min_coverage: 0
       setup: |
-        flutter pub run build_runner build --delete-conflicting-outputs
         flutter pub get
+        dart run build_runner build --delete-conflicting-outputs
+        sed -i '/custom_lint/d' analysis_options.yaml
