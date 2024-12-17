@@ -9,7 +9,7 @@ class RouterListenable extends _$RouterListenable implements Listenable {
 
   @override
   FutureOr<void> build() {
-    ref.listenSelf((_, __) {
+    listenSelf((_, __) {
       if (state.isLoading) return;
       _routerListener?.call();
     });

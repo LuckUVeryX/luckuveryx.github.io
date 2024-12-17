@@ -65,7 +65,7 @@ class YearProgressIndicator extends HookWidget {
                     child: LinearProgressIndicator(
                       color: color,
                       value: yearProg,
-                      backgroundColor: color?.withOpacity(0.3),
+                      backgroundColor: color?.withValues(alpha: 0.3),
                     ),
                   ),
                 ),

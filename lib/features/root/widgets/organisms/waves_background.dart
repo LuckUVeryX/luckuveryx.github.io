@@ -45,7 +45,7 @@ Iterable<(double height, double value, Color color)> _useWaves() {
           ),
         ),
       );
-      return (height, value, color.withOpacity(0.2));
+      return (height, value, color.withValues(alpha: 0.2));
     },
   );
 }

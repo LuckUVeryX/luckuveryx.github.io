@@ -19,7 +19,7 @@ class ScreenSaver extends HookConsumerWidget {
     final (:speed, :size) = ref.watch(screenSaverSettingsControllerProvider);
 
     final color = useState(
-      Color((Random().nextDouble() * 0xFFFFFF).toInt()).withOpacity(1),
+      Color((Random().nextDouble() * 0xFFFFFF).toInt()).withValues(alpha: 1),
     );
     final pos = useState<(double x, double y)>(
       (
@@ -74,7 +74,7 @@ class ScreenSaver extends HookConsumerWidget {
           if (dir.value != (dx, dy)) {
             dir.value = (dx, dy);
             color.value = Color((Random().nextDouble() * 0xFFFFFF).toInt())
-                .withOpacity(1);
+                .withValues(alpha: 1);
           }
 
           pos.value = (x, y);
