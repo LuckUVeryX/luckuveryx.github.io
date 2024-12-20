@@ -6,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'analytics_service.g.dart';
 
 @riverpod
-AnalyticsService _analyticsService(_AnalyticsServiceRef ref) {
+AnalyticsService _analyticsService(Ref ref) {
   return AnalyticsService._(Posthog());
 }
 

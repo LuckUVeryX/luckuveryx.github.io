@@ -1,3 +1,4 @@
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/info/info.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -5,7 +6,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'external_info_links_provider.g.dart';
 
 @riverpod
-List<InfoLink> externalInfoLinks(ExternalInfoLinksRef ref) {
+List<InfoLink> externalInfoLinks(Ref ref) {
   return [
     InfoLink(
       label: 'GitHub',
