@@ -23,7 +23,9 @@ class ScreenSaverPage extends HookConsumerWidget {
                 ResponsiveLayout.md ||
                 ResponsiveLayout.xs ||
                 ResponsiveLayout.sm =>
-                  const EdgeInsets.all(20).copyWith(left: 0, bottom: 0),
+                  const EdgeInsets.all(
+                    20,
+                  ).copyWith(left: 0, bottom: 0),
                 _ => const EdgeInsets.all(28).copyWith(left: 8, bottom: 0),
               },
               child: RootContainer(
@@ -31,9 +33,7 @@ class ScreenSaverPage extends HookConsumerWidget {
                   builder: (context, constraints) {
                     return Stack(
                       children: [
-                        ScreenSaver(
-                          constraints: constraints,
-                        ),
+                        ScreenSaver(constraints: constraints),
                         const Positioned.fill(
                           child: ScreenSaverHeartAnimation(),
                         ),

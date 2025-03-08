@@ -11,10 +11,7 @@ class AppTheme {
       useMaterial3: true,
       fontFamily: FontFamily.geistMono,
       brightness: Brightness.light,
-      colorScheme: const ColorScheme.light(
-        surface: white,
-        onSurface: black,
-      ),
+      colorScheme: const ColorScheme.light(surface: white, onSurface: black),
     );
 
     return theme.copyWith(
@@ -32,9 +29,7 @@ class AppTheme {
       useMaterial3: true,
       fontFamily: FontFamily.geistMono,
       brightness: Brightness.dark,
-      colorScheme: const ColorScheme.dark(
-        onSurface: white,
-      ),
+      colorScheme: const ColorScheme.dark(onSurface: white),
     );
 
     return theme.copyWith(

@@ -16,10 +16,7 @@ class AnalyticsService {
   final Posthog _posthog;
 
   void capture(AnalyticsEvent event) {
-    _posthog.capture(
-      eventName: event.eventName,
-      properties: event.properties,
-    );
+    _posthog.capture(eventName: event.eventName, properties: event.properties);
   }
 }
 

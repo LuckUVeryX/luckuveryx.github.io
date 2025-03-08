@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LayoutScrollView extends StatelessWidget {
-  const LayoutScrollView({
-    required this.child,
-    super.key,
-  });
+  const LayoutScrollView({required this.child, super.key});
 
   final Widget child;
 
@@ -15,9 +12,7 @@ class LayoutScrollView extends StatelessWidget {
         return SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
-            child: IntrinsicHeight(
-              child: child,
-            ),
+            child: IntrinsicHeight(child: child),
           ),
         );
       },

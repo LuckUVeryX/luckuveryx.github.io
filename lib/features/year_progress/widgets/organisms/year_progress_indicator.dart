@@ -48,8 +48,9 @@ class YearProgressIndicator extends HookWidget {
       [],
     );
 
-    final yearProgText =
-        '${(yearProg * 100).toStringAsPrecision(12)}%'.split('');
+    final yearProgText = '${(yearProg * 100).toStringAsPrecision(12)}%'.split(
+      '',
+    );
     final remainingText = remaining.inDHMS;
 
     return AnimatedFadeIn(
@@ -88,11 +89,7 @@ extension on Duration {
   }
 
   Duration get remainingMins {
-    return this -
-        Duration(
-          days: inDays,
-          hours: remainingHrs.inHours,
-        );
+    return this - Duration(days: inDays, hours: remainingHrs.inHours);
   }
 
   Duration get remainingSecs {

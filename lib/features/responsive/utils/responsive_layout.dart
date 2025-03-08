@@ -106,7 +106,7 @@ extension ResponsiveLayoutX on ResponsiveLayout {
       ResponsiveLayout.md => 786,
       ResponsiveLayout.lg => 1024,
       ResponsiveLayout.xl => 1280,
-      ResponsiveLayout.xxl => 1536
+      ResponsiveLayout.xxl => 1536,
     };
   }
 }

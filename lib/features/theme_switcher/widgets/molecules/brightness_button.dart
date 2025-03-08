@@ -7,10 +7,7 @@ import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class BrightnessButton extends HookConsumerWidget {
-  const BrightnessButton({
-    required this.brightness,
-    super.key,
-  });
+  const BrightnessButton({required this.brightness, super.key});
 
   final Brightness brightness;
 

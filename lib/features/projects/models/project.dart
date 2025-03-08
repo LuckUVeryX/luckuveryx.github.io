@@ -121,9 +121,7 @@ class Portfolio extends Project {
           endDate: null,
           links: [
             ProjectLink(
-              url: Uri.parse(
-                'https://luckuveryx.github.io',
-              ),
+              url: Uri.parse('https://luckuveryx.github.io'),
               label: _website,
             ),
             ProjectLink(
@@ -151,15 +149,11 @@ class Evlve extends Project {
               label: _googlePlay,
             ),
             ProjectLink(
-              url: Uri.parse(
-                'https://testflight.apple.com/join/eS0JF0F1',
-              ),
+              url: Uri.parse('https://testflight.apple.com/join/eS0JF0F1'),
               label: _testFlight,
             ),
             ProjectLink(
-              url: Uri.parse(
-                'https://github.com/LuckUVeryX/evlve',
-              ),
+              url: Uri.parse('https://github.com/LuckUVeryX/evlve'),
               label: _gitHub,
             ),
           ],
@@ -175,9 +169,7 @@ class VjChoirArchives extends Project {
           endDate: null,
           links: [
             ProjectLink(
-              url: Uri.parse(
-                'https://github.com/LuckUVeryX/vjchoir_archives',
-              ),
+              url: Uri.parse('https://github.com/LuckUVeryX/vjchoir_archives'),
               label: _gitHub,
             ),
           ],
@@ -193,9 +185,7 @@ class BubuDex extends Project {
           endDate: null,
           links: [
             ProjectLink(
-              url: Uri.parse(
-                'https://github.com/LuckUVeryX/bubudex',
-              ),
+              url: Uri.parse('https://github.com/LuckUVeryX/bubudex'),
               label: _gitHub,
             ),
           ],

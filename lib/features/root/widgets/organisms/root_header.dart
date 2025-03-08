@@ -6,9 +6,7 @@ import 'package:luckuveryx/l10n/l10n.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class RootHeader extends StatelessWidget {
-  const RootHeader({
-    super.key,
-  });
+  const RootHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,17 +18,11 @@ class RootHeader extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: Text(
-              'Ryan Yip',
-              style: context.displayStyle,
-            ),
+            child: Text('Ryan Yip', style: context.displayStyle),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8),
-            child: Text(
-              'LuckUVeryx',
-              style: context.titleStyle,
-            ),
+            child: Text('LuckUVeryx', style: context.titleStyle),
           ),
           Spacing.sp24,
           RouteButtonBuilder(

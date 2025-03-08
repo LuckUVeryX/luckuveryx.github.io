@@ -16,9 +16,7 @@ final shellKey = GlobalKey<NavigatorState>(debugLabel: 'shell');
   routes: [
     TypedGoRoute<HomeRoute>(
       path: HomeRoute.path,
-      routes: [
-        TypedGoRoute<ScreenSaverRoute>(path: ScreenSaverRoute.path),
-      ],
+      routes: [TypedGoRoute<ScreenSaverRoute>(path: ScreenSaverRoute.path)],
     ),
     TypedGoRoute<ProjectsRoute>(path: ProjectsRoute.path),
     TypedGoRoute<InfoRoute>(path: InfoRoute.path),

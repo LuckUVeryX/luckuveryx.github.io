@@ -7,10 +7,7 @@ import 'package:luckuveryx/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectTitle extends HookConsumerWidget {
-  const ProjectTitle({
-    required this.project,
-    super.key,
-  });
+  const ProjectTitle({required this.project, super.key});
 
   final Project project;
 
@@ -25,9 +22,7 @@ class ProjectTitle extends HookConsumerWidget {
         return Text(
           project.title,
           textAlign: TextAlign.right,
-          style: context.displayStyle?.copyWith(
-            color: hover.color,
-          ),
+          style: context.displayStyle?.copyWith(color: hover.color),
         );
       },
     );

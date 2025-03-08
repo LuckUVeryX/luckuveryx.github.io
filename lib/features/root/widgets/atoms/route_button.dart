@@ -3,11 +3,7 @@ import 'package:luckuveryx/utils/theme_extensions.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class RouteButton extends StatelessWidget {
-  const RouteButton({
-    required this.onPressed,
-    required this.label,
-    super.key,
-  });
+  const RouteButton({required this.onPressed, required this.label, super.key});
 
   final VoidCallback? onPressed;
   final String label;

@@ -4,10 +4,5 @@ import 'package:luckuveryx/bootstrap.dart';
 import 'package:luckuveryx/utils/logger.dart';
 
 void main(List<String> args) {
-  bootstrap(
-    () => const ProviderScope(
-      observers: [Logger()],
-      child: App(),
-    ),
-  );
+  bootstrap(() => const ProviderScope(observers: [Logger()], child: App()));
 }

@@ -8,7 +8,7 @@ part 'location_info_links_provider.g.dart';
 @riverpod
 InfoLink locationInfoLink(Ref ref) {
   return InfoLink(
-    label: '1.3521° N, 103.8198° E',
+    label: '1.3521° N, 103.8198° E\nSingapore, Singapore',
     url: Uri.parse('https://maps.app.goo.gl/f2s8ejFtpiUPTtmW6'),
     event: AnalyticsEvent.locationViewed(),
   );

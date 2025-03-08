@@ -3,10 +3,7 @@ import 'package:luckuveryx/features/theme_switcher/theme_switcher.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class RootContainer extends StatelessWidget {
-  const RootContainer({
-    this.child,
-    super.key,
-  });
+  const RootContainer({this.child, super.key});
 
   final Widget? child;
 
@@ -23,11 +20,7 @@ class RootContainer extends StatelessWidget {
             BrightnessButton(brightness: Brightness.light),
           ],
         ),
-        Expanded(
-          child: BorderContainer(
-            child: child,
-          ),
-        ),
+        Expanded(child: BorderContainer(child: child)),
       ],
     );
   }

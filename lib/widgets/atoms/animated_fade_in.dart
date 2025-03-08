@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-double _useFadeIn({
-  required Duration duration,
-  required Curve curve,
-}) {
+double _useFadeIn({required Duration duration, required Curve curve}) {
   final controller = useAnimationController(duration: duration);
   useEffect(
     () {
@@ -30,14 +27,8 @@ class AnimatedFadeIn extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final fade = _useFadeIn(
-      curve: curve,
-      duration: duration,
-    );
+    final fade = _useFadeIn(curve: curve, duration: duration);
 
-    return Opacity(
-      opacity: fade,
-      child: child,
-    );
+    return Opacity(opacity: fade, child: child);
   }
 }

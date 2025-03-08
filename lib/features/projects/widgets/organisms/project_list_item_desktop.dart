@@ -3,10 +3,7 @@ import 'package:luckuveryx/features/projects/projects.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class ProjectListItemDesktop extends StatelessWidget {
-  const ProjectListItemDesktop({
-    required this.project,
-    super.key,
-  });
+  const ProjectListItemDesktop({required this.project, super.key});
 
   final Project project;
 

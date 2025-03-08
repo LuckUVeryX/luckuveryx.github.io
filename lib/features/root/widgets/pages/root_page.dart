@@ -5,10 +5,7 @@ import 'package:luckuveryx/features/root/root.dart';
 import 'package:luckuveryx/features/year_progress/year_progress.dart';
 
 class RootPage extends HookConsumerWidget {
-  const RootPage({
-    required this.navigator,
-    super.key,
-  });
+  const RootPage({required this.navigator, super.key});
 
   final Widget navigator;
 

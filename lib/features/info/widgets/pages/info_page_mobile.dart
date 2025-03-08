@@ -3,9 +3,7 @@ import 'package:luckuveryx/features/info/info.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class InfoPageMobile extends StatelessWidget {
-  const InfoPageMobile({
-    super.key,
-  });
+  const InfoPageMobile({super.key});
 
   @override
   Widget build(BuildContext context) {

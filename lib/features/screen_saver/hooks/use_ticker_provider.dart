@@ -38,10 +38,11 @@ class _TickerProviderHookState
         for (final ticker in _tickers) {
           if (ticker.isActive) {
             throw FlutterError(
-                'useTickerProvider created a Ticker, but at the time '
-                'dispose() was called on the Hook, that Ticker was still active. Tickers used '
-                ' by AnimationControllers should be disposed by calling dispose() on '
-                ' the AnimationController itself. Otherwise, the ticker will leak.\n');
+              'useTickerProvider created a Ticker, but at the time '
+              'dispose() was called on the Hook, that Ticker was still active. Tickers used '
+              ' by AnimationControllers should be disposed by calling dispose() on '
+              ' the AnimationController itself. Otherwise, the ticker will leak.\n',
+            );
           }
         }
         return true;

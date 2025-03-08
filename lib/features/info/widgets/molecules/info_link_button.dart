@@ -8,12 +8,10 @@ import 'package:luckuveryx/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoLinkButton extends HookConsumerWidget {
-  const InfoLinkButton({
-    required this.link,
-    super.key,
-  });
+  const InfoLinkButton({required this.link, this.textAlign, super.key});
 
   final InfoLink link;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -29,9 +27,8 @@ class InfoLinkButton extends HookConsumerWidget {
         children: [
           Text(
             link.label,
-            style: context.titleStyle?.copyWith(
-              color: details.color,
-            ),
+            style: context.titleStyle?.copyWith(color: details.color),
+            textAlign: textAlign,
           ),
           Spacing.sp4,
           FaIcon(

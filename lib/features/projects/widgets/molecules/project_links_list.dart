@@ -7,10 +7,7 @@ import 'package:luckuveryx/widgets/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectLinksList extends HookConsumerWidget {
-  const ProjectLinksList({
-    required this.project,
-    super.key,
-  });
+  const ProjectLinksList({required this.project, super.key});
 
   final Project project;
 

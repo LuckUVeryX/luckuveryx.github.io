@@ -18,43 +18,37 @@ Iterable<(double height, double value, Color color)> _useWaves() {
     (240.0, 0.5, colorScheme.primary),
   ];
 
-  return curves.map(
-    (e) {
-      final (height, speed, color) = e;
+  return curves.map((e) {
+    final (height, speed, color) = e;
 
-      final controller = useAnimationController(
-        duration: Duration(milliseconds: 10000 ~/ speed),
-      );
+    final controller = useAnimationController(
+      duration: Duration(milliseconds: 10000 ~/ speed),
+    );
 
-      useEffect(
-        () {
-          controller
-            ..value = Random().nextDouble()
-            ..repeat();
-          return null;
-        },
-        [],
-      );
+    useEffect(
+      () {
+        controller
+          ..value = Random().nextDouble()
+          ..repeat();
+        return null;
+      },
+      [],
+    );
 
-      final value = useAnimation(
-        controller.drive(
-          Tween<double>(begin: 0, end: 2 * pi).chain(
-            CurveTween(
-              curve: Curves.easeInOutSine,
-            ),
-          ),
-        ),
-      );
-      return (height, value, color.withValues(alpha: 0.2));
-    },
-  );
+    final value = useAnimation(
+      controller.drive(
+        Tween<double>(
+          begin: 0,
+          end: 2 * pi,
+        ).chain(CurveTween(curve: Curves.easeInOutSine)),
+      ),
+    );
+    return (height, value, color.withValues(alpha: 0.2));
+  });
 }
 
 class WavesBackground extends HookWidget {
-  const WavesBackground({
-    this.child,
-    super.key,
-  });
+  const WavesBackground({this.child, super.key});
 
   final Widget? child;
 
@@ -73,10 +67,7 @@ class WavesBackground extends HookWidget {
               width: double.infinity,
               height: height,
               child: CustomPaint(
-                painter: CurvePainter(
-                  value: value,
-                  color: color,
-                ),
+                painter: CurvePainter(value: value, color: color),
               ),
             ),
           ),

@@ -3,11 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class CurvePainter extends CustomPainter {
-  CurvePainter({
-    required this.value,
-    required this.color,
-    super.repaint,
-  });
+  CurvePainter({required this.value, required this.color, super.repaint});
 
   final double value;
   final Color color;

@@ -3,9 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:luckuveryx/features/info/info.dart';
 
 class ExternalInfoLinks extends HookConsumerWidget {
-  const ExternalInfoLinks({
-    super.key,
-  });
+  const ExternalInfoLinks({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -14,11 +12,7 @@ class ExternalInfoLinks extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
-      children: [
-        ...links.map(
-          (link) => InfoLinkButton(link: link),
-        ),
-      ],
+      children: [...links.map((link) => InfoLinkButton(link: link))],
     );
   }
 }

@@ -14,10 +14,7 @@ class ContactPage extends StatelessWidget {
         child: InfoLinkButton(
           link: InfoLink(
             label: 'Contact Me',
-            url: Uri(
-              scheme: 'mailto',
-              path: 'luckuveryx@icloud.com',
-            ),
+            url: Uri(scheme: 'mailto', path: 'luckuveryx@icloud.com'),
             event: AnalyticsEvent.contactMeTapped(),
           ),
         ),

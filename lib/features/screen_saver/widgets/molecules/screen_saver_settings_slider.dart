@@ -30,10 +30,7 @@ class ScreenSaverSetttingsSlider extends StatelessWidget {
             children: [
               Text(label),
               const Spacer(),
-              Text(
-                value.toStringAsFixed(1),
-                textAlign: TextAlign.right,
-              ),
+              Text(value.toStringAsFixed(1), textAlign: TextAlign.right),
             ],
           ),
         ),

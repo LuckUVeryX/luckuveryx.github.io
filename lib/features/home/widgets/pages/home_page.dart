@@ -14,10 +14,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.only(right: 24),
         width: 200,
         child: AnimatedSlideIn(
-          child: Text(
-            context.l10n.homeContent,
-            style: context.bodyStyle,
-          ),
+          child: Text(context.l10n.homeContent, style: context.bodyStyle),
         ),
       ),
     );

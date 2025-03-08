@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-double _useSlideIn({
-  required Duration duration,
-  required Curve curve,
-}) {
+double _useSlideIn({required Duration duration, required Curve curve}) {
   final controller = useAnimationController(duration: duration);
   useEffect(
     () {
@@ -14,8 +11,10 @@ double _useSlideIn({
     const [],
   );
   return useAnimation(
-    CurvedAnimation(parent: controller, curve: curve)
-        .drive(Tween<double>(begin: 1, end: 0)),
+    CurvedAnimation(
+      parent: controller,
+      curve: curve,
+    ).drive(Tween<double>(begin: 1, end: 0)),
   );
 }
 
@@ -35,14 +34,8 @@ class AnimatedSlideIn extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final translate = _useSlideIn(
-      curve: curve,
-      duration: duration,
-    );
+    final translate = _useSlideIn(curve: curve, duration: duration);
 
-    return Transform.translate(
-      offset: offset * translate,
-      child: child,
-    );
+    return Transform.translate(offset: offset * translate, child: child);
   }
 }

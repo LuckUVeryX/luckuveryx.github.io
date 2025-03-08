@@ -22,16 +22,13 @@ class $AssetsLottieGen {
 }
 
 class Assets {
-  Assets._();
+  const Assets._();
 
   static const $AssetsLottieGen lottie = $AssetsLottieGen();
 }
 
 class LottieGenImage {
-  const LottieGenImage(
-    this._assetName, {
-    this.flavors = const {},
-  });
+  const LottieGenImage(this._assetName, {this.flavors = const {}});
 
   final String _assetName;
   final Set<String> flavors;
@@ -48,11 +45,8 @@ class LottieGenImage {
     _lottie.LottieImageProviderFactory? imageProviderFactory,
     Key? key,
     AssetBundle? bundle,
-    Widget Function(
-      BuildContext,
-      Widget,
-      _lottie.LottieComposition?,
-    )? frameBuilder,
+    Widget Function(BuildContext, Widget, _lottie.LottieComposition?)?
+        frameBuilder,
     ImageErrorWidgetBuilder? errorBuilder,
     double? width,
     double? height,
@@ -62,6 +56,9 @@ class LottieGenImage {
     bool? addRepaintBoundary,
     FilterQuality? filterQuality,
     void Function(String)? onWarning,
+    _lottie.LottieDecoder? decoder,
+    _lottie.RenderCache? renderCache,
+    bool? backgroundLoading,
   }) {
     return _lottie.Lottie.asset(
       _assetName,
@@ -86,6 +83,9 @@ class LottieGenImage {
       addRepaintBoundary: addRepaintBoundary,
       filterQuality: filterQuality,
       onWarning: onWarning,
+      decoder: decoder,
+      renderCache: renderCache,
+      backgroundLoading: backgroundLoading,
     );
   }
 

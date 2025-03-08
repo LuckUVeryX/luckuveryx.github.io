@@ -5,9 +5,7 @@ import 'package:luckuveryx/l10n/l10n.dart';
 import 'package:luckuveryx/widgets/widgets.dart';
 
 class ProjectHeader extends StatelessWidget {
-  const ProjectHeader({
-    super.key,
-  });
+  const ProjectHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +13,9 @@ class ProjectHeader extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        const FaIcon(
-          FontAwesomeIcons.solidSquare,
-          size: 16,
-        ),
+        const FaIcon(FontAwesomeIcons.solidSquare, size: 16),
         Spacing.sp8,
-        Text(
-          context.l10n.projects,
-          style: context.titleStyle,
-        ),
+        Text(context.l10n.projects, style: context.titleStyle),
       ],
     );
   }

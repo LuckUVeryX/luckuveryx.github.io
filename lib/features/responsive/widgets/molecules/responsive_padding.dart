@@ -3,10 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 
 class ResponsivePadding extends HookWidget {
-  const ResponsivePadding({
-    required this.child,
-    super.key,
-  });
+  const ResponsivePadding({required this.child, super.key});
 
   final Widget child;
 

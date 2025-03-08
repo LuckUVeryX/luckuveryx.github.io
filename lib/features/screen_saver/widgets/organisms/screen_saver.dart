@@ -7,10 +7,7 @@ import 'package:luckuveryx/features/analytics/analytics.dart';
 import 'package:luckuveryx/features/screen_saver/screen_saver.dart';
 
 class ScreenSaver extends HookConsumerWidget {
-  const ScreenSaver({
-    required this.constraints,
-    super.key,
-  });
+  const ScreenSaver({required this.constraints, super.key});
 
   final BoxConstraints constraints;
 
@@ -24,7 +21,7 @@ class ScreenSaver extends HookConsumerWidget {
     final pos = useState<(double x, double y)>(
       (
         Random().nextDouble() * (constraints.maxWidth - size),
-        Random().nextDouble() * (constraints.maxHeight - size)
+        Random().nextDouble() * (constraints.maxHeight - size),
       ),
     );
     final dir = useState<(int dx, int dy)>(
@@ -73,8 +70,9 @@ class ScreenSaver extends HookConsumerWidget {
           // Bounce
           if (dir.value != (dx, dy)) {
             dir.value = (dx, dy);
-            color.value = Color((Random().nextDouble() * 0xFFFFFF).toInt())
-                .withValues(alpha: 1);
+            color.value = Color(
+              (Random().nextDouble() * 0xFFFFFF).toInt(),
+            ).withValues(alpha: 1);
           }
 
           pos.value = (x, y);
@@ -96,11 +94,7 @@ class ScreenSaver extends HookConsumerWidget {
     return Positioned(
       left: x,
       top: y,
-      child: Container(
-        height: size,
-        width: size,
-        color: color.value,
-      ),
+      child: Container(height: size, width: size, color: color.value),
     );
   }
 }

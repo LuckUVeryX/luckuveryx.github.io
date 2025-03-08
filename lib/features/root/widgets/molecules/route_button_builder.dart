@@ -32,9 +32,10 @@ class RouteButtonBuilder extends HookWidget {
     );
 
     final opacity = useAnimation(
-      CurvedAnimation(parent: controller, curve: Curves.easeOut).drive(
-        Tween<double>(begin: 0.3, end: 1),
-      ),
+      CurvedAnimation(
+        parent: controller,
+        curve: Curves.easeOut,
+      ).drive(Tween<double>(begin: 0.3, end: 1)),
     );
 
     return Opacity(

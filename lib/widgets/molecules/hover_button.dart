@@ -25,10 +25,7 @@ HoverDetails _useHover(bool hover) {
 
   if (color == null) throw Exception('useHoverColorAnimation color is null');
 
-  return HoverDetails(
-    isHover: hover,
-    color: color,
-  );
+  return HoverDetails(isHover: hover, color: color);
 }
 
 class HoverButton extends HookWidget {

@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:luckuveryx/utils/theme_extensions.dart';
 
 class YearProgressMonospaceText extends StatelessWidget {
-  const YearProgressMonospaceText({
-    required this.char,
-    super.key,
-  });
+  const YearProgressMonospaceText({required this.char, super.key});
 
   final String char;
 

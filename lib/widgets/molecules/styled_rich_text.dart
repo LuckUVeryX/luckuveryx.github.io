@@ -33,14 +33,10 @@ class StyledRichText extends StatelessWidget {
       textAlign: textAlign,
       tags: {
         ...?tags,
-        'b': StyledTextTag(
-          style: style?.copyWith(fontWeight: FontWeight.bold),
-        ),
+        'b': StyledTextTag(style: style?.copyWith(fontWeight: FontWeight.bold)),
         'link': StyledTextActionTag(
           _onLinkTap,
-          style: style?.copyWith(
-            decoration: TextDecoration.underline,
-          ),
+          style: style?.copyWith(decoration: TextDecoration.underline),
         ),
       },
     );

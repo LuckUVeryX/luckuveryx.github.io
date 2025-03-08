@@ -3,10 +3,7 @@ import 'package:luckuveryx/features/projects/projects.dart';
 import 'package:luckuveryx/features/responsive/responsive.dart';
 
 class ProjectListItem extends StatelessWidget {
-  const ProjectListItem({
-    required this.project,
-    super.key,
-  });
+  const ProjectListItem({required this.project, super.key});
 
   final Project project;
 
