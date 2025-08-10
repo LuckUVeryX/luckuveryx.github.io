@@ -17,8 +17,7 @@ class RootPage extends HookConsumerWidget {
           // Accounts for ThemeButton width of 20.
           ResponsiveLayout.md ||
           ResponsiveLayout.xs ||
-          ResponsiveLayout.sm =>
-            const EdgeInsets.all(20).copyWith(left: 0),
+          ResponsiveLayout.sm => const EdgeInsets.all(20).copyWith(left: 0),
           _ => const EdgeInsets.all(28).copyWith(left: 8),
         },
         child: Column(

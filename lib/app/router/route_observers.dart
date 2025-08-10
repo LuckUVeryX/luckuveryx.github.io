@@ -10,9 +10,9 @@ void useRouterObserver(GoRouter router) {
       Future<void> posthogObserver() async {
         final matchList = await router.routeInformationParser
             .parseRouteInformationWithDependencies(
-          router.routeInformationProvider.value,
-          context,
-        );
+              router.routeInformationProvider.value,
+              context,
+            );
         final screenName = matchList.matches.lastOrNull?.matchedLocation;
         if (screenName == null) return;
         await Posthog().screen(screenName: screenName);

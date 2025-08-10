@@ -30,164 +30,164 @@ sealed class Project {
   }
 
   static List<Project> get values => [
-        Glints(),
-        Portfolio(),
-        Evlve(),
-        Osim(),
-        Scratchbac(),
-        VjChoirArchives(),
-        BubuDex(),
-      ];
+    Glints(),
+    Portfolio(),
+    Evlve(),
+    Osim(),
+    Scratchbac(),
+    VjChoirArchives(),
+    BubuDex(),
+  ];
 }
 
 class Glints extends Project {
   Glints()
-      : super._(
-          title: 'Glints',
-          url: Uri.parse('https://glints.com'),
-          startDate: DateTime(2022, 10),
-          endDate: null,
-          links: [
-            ProjectLink(
-              url: Uri.parse(
-                'https://apps.apple.com/us/app/glints-jobs-chat-hr-career/id1613169954',
-              ),
-              label: _appStore,
+    : super._(
+        title: 'Glints',
+        url: Uri.parse('https://glints.com'),
+        startDate: DateTime(2022, 10),
+        endDate: null,
+        links: [
+          ProjectLink(
+            url: Uri.parse(
+              'https://apps.apple.com/us/app/glints-jobs-chat-hr-career/id1613169954',
             ),
-            ProjectLink(
-              url: Uri.parse(
-                'https://play.google.com/store/apps/details?id=com.glints.candidate',
-              ),
-              label: _googlePlay,
+            label: _appStore,
+          ),
+          ProjectLink(
+            url: Uri.parse(
+              'https://play.google.com/store/apps/details?id=com.glints.candidate',
             ),
-          ],
-        );
+            label: _googlePlay,
+          ),
+        ],
+      );
 }
 
 class Osim extends Project {
   Osim()
-      : super._(
-          title: 'Osim',
-          url: Uri.parse('https://sg.osim.com'),
-          startDate: DateTime(2021, 11),
-          endDate: DateTime(2022, 10),
-          links: [
-            ProjectLink(
-              url: Uri.parse(
-                'https://apps.apple.com/sg/app/osim-well-being/id1588337384',
-              ),
-              label: _appStore,
+    : super._(
+        title: 'Osim',
+        url: Uri.parse('https://sg.osim.com'),
+        startDate: DateTime(2021, 11),
+        endDate: DateTime(2022, 10),
+        links: [
+          ProjectLink(
+            url: Uri.parse(
+              'https://apps.apple.com/sg/app/osim-well-being/id1588337384',
             ),
-            ProjectLink(
-              url: Uri.parse(
-                'https://play.google.com/store/apps/details?id=com.osim.oneapp&hl=en&gl=US',
-              ),
-              label: _googlePlay,
+            label: _appStore,
+          ),
+          ProjectLink(
+            url: Uri.parse(
+              'https://play.google.com/store/apps/details?id=com.osim.oneapp&hl=en&gl=US',
             ),
-          ],
-        );
+            label: _googlePlay,
+          ),
+        ],
+      );
 }
 
 class Scratchbac extends Project {
   Scratchbac()
-      : super._(
-          title: 'Scratchbac',
-          url: Uri.parse('https://www.scratchbac.com'),
-          startDate: DateTime(2020, 9),
-          endDate: DateTime(2021, 11),
-          links: [
-            ProjectLink(
-              url: Uri.parse(
-                'https://apps.apple.com/sg/app/scratchbac/id1587462661',
-              ),
-              label: _appStore,
+    : super._(
+        title: 'Scratchbac',
+        url: Uri.parse('https://www.scratchbac.com'),
+        startDate: DateTime(2020, 9),
+        endDate: DateTime(2021, 11),
+        links: [
+          ProjectLink(
+            url: Uri.parse(
+              'https://apps.apple.com/sg/app/scratchbac/id1587462661',
             ),
-            ProjectLink(
-              url: Uri.parse(
-                'https://play.google.com/store/apps/details?id=com.scratchbac.baladi',
-              ),
-              label: _googlePlay,
+            label: _appStore,
+          ),
+          ProjectLink(
+            url: Uri.parse(
+              'https://play.google.com/store/apps/details?id=com.scratchbac.baladi',
             ),
-          ],
-        );
+            label: _googlePlay,
+          ),
+        ],
+      );
 }
 
 class Portfolio extends Project {
   Portfolio()
-      : super._(
-          title: 'Portfolio',
-          url: Uri.parse('https://luckuveryx.github.io'),
-          startDate: DateTime(2023, 10),
-          endDate: null,
-          links: [
-            ProjectLink(
-              url: Uri.parse('https://luckuveryx.github.io'),
-              label: _website,
+    : super._(
+        title: 'Portfolio',
+        url: Uri.parse('https://luckuveryx.github.io'),
+        startDate: DateTime(2023, 10),
+        endDate: null,
+        links: [
+          ProjectLink(
+            url: Uri.parse('https://luckuveryx.github.io'),
+            label: _website,
+          ),
+          ProjectLink(
+            url: Uri.parse(
+              'https://github.com/LuckUVeryX/luckuveryx.github.io',
             ),
-            ProjectLink(
-              url: Uri.parse(
-                'https://github.com/LuckUVeryX/luckuveryx.github.io',
-              ),
-              label: _gitHub,
-            ),
-          ],
-        );
+            label: _gitHub,
+          ),
+        ],
+      );
 }
 
 class Evlve extends Project {
   Evlve()
-      : super._(
-          title: 'Evlve MMA',
-          url: Uri.parse('https://evolve-mma.com/'),
-          startDate: DateTime(2023, 5),
-          endDate: null,
-          links: [
-            ProjectLink(
-              url: Uri.parse(
-                'https://play.google.com/store/apps/details?id=com.evolve.evlve',
-              ),
-              label: _googlePlay,
+    : super._(
+        title: 'Evlve MMA',
+        url: Uri.parse('https://evolve-mma.com/'),
+        startDate: DateTime(2023, 5),
+        endDate: null,
+        links: [
+          ProjectLink(
+            url: Uri.parse(
+              'https://play.google.com/store/apps/details?id=com.evolve.evlve',
             ),
-            ProjectLink(
-              url: Uri.parse('https://testflight.apple.com/join/eS0JF0F1'),
-              label: _testFlight,
-            ),
-            ProjectLink(
-              url: Uri.parse('https://github.com/LuckUVeryX/evlve'),
-              label: _gitHub,
-            ),
-          ],
-        );
+            label: _googlePlay,
+          ),
+          ProjectLink(
+            url: Uri.parse('https://testflight.apple.com/join/eS0JF0F1'),
+            label: _testFlight,
+          ),
+          ProjectLink(
+            url: Uri.parse('https://github.com/LuckUVeryX/evlve'),
+            label: _gitHub,
+          ),
+        ],
+      );
 }
 
 class VjChoirArchives extends Project {
   VjChoirArchives()
-      : super._(
-          title: 'VJ Choir Archives',
-          url: Uri.parse('https://github.com/LuckUVeryX/vjchoir_archives'),
-          startDate: DateTime(2022, 9),
-          endDate: null,
-          links: [
-            ProjectLink(
-              url: Uri.parse('https://github.com/LuckUVeryX/vjchoir_archives'),
-              label: _gitHub,
-            ),
-          ],
-        );
+    : super._(
+        title: 'VJ Choir Archives',
+        url: Uri.parse('https://github.com/LuckUVeryX/vjchoir_archives'),
+        startDate: DateTime(2022, 9),
+        endDate: null,
+        links: [
+          ProjectLink(
+            url: Uri.parse('https://github.com/LuckUVeryX/vjchoir_archives'),
+            label: _gitHub,
+          ),
+        ],
+      );
 }
 
 class BubuDex extends Project {
   BubuDex()
-      : super._(
-          title: 'Bubudex',
-          url: Uri.parse('https://github.com/LuckUVeryX/bubudex'),
-          startDate: DateTime(2021, 10),
-          endDate: null,
-          links: [
-            ProjectLink(
-              url: Uri.parse('https://github.com/LuckUVeryX/bubudex'),
-              label: _gitHub,
-            ),
-          ],
-        );
+    : super._(
+        title: 'Bubudex',
+        url: Uri.parse('https://github.com/LuckUVeryX/bubudex'),
+        startDate: DateTime(2021, 10),
+        endDate: null,
+        links: [
+          ProjectLink(
+            url: Uri.parse('https://github.com/LuckUVeryX/bubudex'),
+            label: _gitHub,
+          ),
+        ],
+      );
 }

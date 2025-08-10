@@ -84,8 +84,7 @@ class ScreenSaver extends HookConsumerWidget {
                 .detectCorner();
             ref.capture(AnalyticsEvent.cornerDetected());
           }
-        })
-          ..start();
+        })..start();
         return ticker.dispose;
       },
       [constraints, size, speed],

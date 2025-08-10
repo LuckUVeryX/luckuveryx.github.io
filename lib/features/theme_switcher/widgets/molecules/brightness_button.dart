@@ -34,8 +34,7 @@ class BrightnessButton extends HookConsumerWidget {
               switch (brightness) {
                 Brightness.light => context.l10n.light,
                 Brightness.dark => context.l10n.dark,
-              }
-                  .toUpperCase(),
+              }.toUpperCase(),
               style: context.textTheme.bodyMedium!.copyWith(
                 color: hover.color,
               ),

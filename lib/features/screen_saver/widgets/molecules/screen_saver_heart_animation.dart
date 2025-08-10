@@ -54,7 +54,7 @@ class _ScreenSaverHeartAnimation extends HookConsumerWidget {
       ),
     );
 
-    ref.listen(screenSaverCornerControllerProvider, (_, __) async {
+    ref.listen(screenSaverCornerControllerProvider, (_, _) async {
       controller.reset();
       await controller.forward();
       controller.reset();

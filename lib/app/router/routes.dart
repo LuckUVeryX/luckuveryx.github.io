@@ -32,7 +32,7 @@ class RootRoute extends ShellRouteData {
   }
 }
 
-class HomeRoute extends GoRouteData {
+class HomeRoute extends GoRouteData with _$HomeRoute {
   const HomeRoute();
   static const path = '/';
   @override
@@ -41,7 +41,7 @@ class HomeRoute extends GoRouteData {
   }
 }
 
-class ProjectsRoute extends GoRouteData {
+class ProjectsRoute extends GoRouteData with _$ProjectsRoute {
   const ProjectsRoute();
   static const path = '/projects';
   @override
@@ -50,7 +50,7 @@ class ProjectsRoute extends GoRouteData {
   }
 }
 
-class InfoRoute extends GoRouteData {
+class InfoRoute extends GoRouteData with _$InfoRoute {
   const InfoRoute();
   static const path = '/info';
   @override
@@ -59,7 +59,7 @@ class InfoRoute extends GoRouteData {
   }
 }
 
-class ContactRoute extends GoRouteData {
+class ContactRoute extends GoRouteData with _$ContactRoute {
   const ContactRoute();
   static const path = '/contact';
   @override
@@ -68,7 +68,7 @@ class ContactRoute extends GoRouteData {
   }
 }
 
-class ScreenSaverRoute extends GoRouteData {
+class ScreenSaverRoute extends GoRouteData with _$ScreenSaverRoute {
   const ScreenSaverRoute();
   static const path = 'screen-saver';
   static final GlobalKey<NavigatorState> $parentNavigatorKey = rootKey;

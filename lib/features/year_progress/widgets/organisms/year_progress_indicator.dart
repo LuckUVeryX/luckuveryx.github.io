@@ -33,8 +33,7 @@ class YearProgressIndicator extends HookWidget {
       () {
         final ticker = tickerProvider.createTicker((_) {
           now.value = DateTime.now();
-        })
-          ..start();
+        })..start();
         return ticker.stop;
       },
       [],
